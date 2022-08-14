@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   fork.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 15:49:28 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/14 17:26:35 by yrabby           ###   ########.fr       */
+/*   Created: 2022/08/14 17:15:55 by yrabby            #+#    #+#             */
+/*   Updated: 2022/08/14 17:26:57 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#ifndef FORK_H
+# define FORK_H
 
-typedef enum s_error_code
+# include <pthread.h>
+
+# include "error.h"
+
+typedef struct s_fork
 {
-	ERROR = -1,
-	SUCCESS = 0,
-	MUTEX_INIT_ERROR,
-	MUTEX_DESTROY_ERROR,
-	MUTEX_LOCK_ERROR,
-	MUTEX_UNLOCK_ERROR,
-}	t_error_code;
+	pthread_mutex_t mutex;
+}	t_fork;
+
+t_error_code	fork_init(t_fork *f);
+t_error_code	fork_destroy(t_fork *f);
+t_error_code	fork_pick(t_fork *f);
+t_error_code	fork_drop(t_fork *f);
 
 #endif
