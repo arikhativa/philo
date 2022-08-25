@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:57:03 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/14 15:57:27 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/25 11:28:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 # define MACROS_H
 
 typedef void *(*t_thread_handler)(void *);
+
+# define ZERO	(0)
+# define TRUE	(1)
+# define FALSE	(!TRUE)
 
 #endif
