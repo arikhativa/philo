@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/14 16:10:53 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/28 22:11:00 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void philo_handler(void *arg)
+{
+	printf("philo_handler\n");
+}
+
+t_philo	philo_create()
+{
+	pthread_t	tid;
+	int			stt;
+	void *restrict hdlr_arg;
+	
+	stt = pthread_create(&tid, NULL, philo_handler, hdlr_arg);
+	pthread_join(tid, NULL);
+}
+
+
 
 void	*thread_hdlrt(void *args)
 {
@@ -28,12 +45,3 @@ void	create_th(t_thread_handler hdlr, void *restrict hdlr_arg)
 	pthread_join(tid, NULL);
 }
 
-int	main(int ac, char **av)
-{
-	(void)ac;
-	(void)av;
-
-	create_th(thread_hdlrt, &ac);
-	printf("hey main\n");
-	return (SUCCESS);
-}
