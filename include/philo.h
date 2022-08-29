@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 14:04:04 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 15:51:34 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ typedef enum e_philo_stt
 typedef struct s_philo
 {
 	int			id;
+	long		start_time;
+	long		eat_time;
+	long		eat_limit;
 	pthread_t	tid;
 	t_philo_stt	stt;
 	t_hand		*left_hand;
@@ -42,7 +45,7 @@ typedef struct s_philo
 
 // philo
 void			philo_destroy(t_philo *p);
-t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r);
+t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time);
 
 // fork
 t_error_code	philo_pick_fork_left(t_philo *p);
@@ -62,6 +65,6 @@ t_error_code	philo_stop_simulation(t_philo *p);
 void	philo_eat(t_philo *p);
 void	philo_sleep(t_philo *p);
 void	philo_thinking(t_philo *p);
-void	philo_died(t_philo *p);
+void	philo_is_dead(t_philo *p);
 
 #endif

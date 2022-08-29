@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_print.c                                      :+:      :+:    :+:   */
+/*   timer.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/29 13:42:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 13:47:52 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/29 15:10:51 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/29 15:42:54 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print_action.h"
+#ifndef TIMER_H
+# define TIMER_H
 
-void	print_action(int id, const char *msg)
-{
-	printf("time %d %s\n", id, msg);
-}
+# include <sys/time.h>
+# include <stdio.h>
+# include <stddef.h>
+
+typedef struct timeval t_timer;
+
+long	timer_get_now(void);
+
+#endif

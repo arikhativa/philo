@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   print_action.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 15:57:03 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 15:53:17 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/29 13:42:52 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/29 15:49:29 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#include "print_action.h"
 
-typedef void *(*t_thread_handler)(void *);
+void	print_action(long timestamp, int id, const char *msg)
+{
+	long	now;
 
-# define ZERO	(0)
-# define TRUE	(1)
-# define FALSE	(!TRUE)
-
-# define EAT_LIM	(5000)
-# define EAT_TIME	(1000000)
-# define DIE_TIME	(1000000)
-# define SLEEP_TIME	(1000000)
-
-#endif
+	now = timer_get_now();
+	printf("%ld %d %s\n", (now - timestamp), id, msg);
+}

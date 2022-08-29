@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 13:48:12 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 13:48:31 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 15:48:31 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <stdio.h>
 
-void	print_action(int id, const char *msg);
+#include "timer.h"
+
+void	print_action(long timestamp, int id, const char *msg);
 
 #endif

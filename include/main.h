@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 22:07:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 11:42:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 15:20:44 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 
 # include "macros.h"
+# include "timer.h"
 # include "table.h"
 
 #endif

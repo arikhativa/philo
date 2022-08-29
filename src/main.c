@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 22:06:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 14:11:43 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 15:55:26 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,7 @@ int	main(int ac, char **av)
 		error_code_print(err);
 		return (err);
 	}
-	print_philo(t->philo_list[0]);
-	print_philo(t->philo_list[1]);
-	print_philo(t->philo_list[2]);
 	table_start_simulation(t);
-	sleep(2);
 	table_stop_simulation(t);
 	table_destroy(t);
 	return (SUCCESS);

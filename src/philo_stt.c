@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 13:37:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 13:58:11 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 15:51:56 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,32 @@
 void	philo_eat(t_philo *p)
 {
 	p->stt = EAT;
-	print_action(p->id, "is eating");
-	usleep(USLEEP_TIME);
+	print_action(p->start_time, p->id, "is eating");
+	p->eat_time = timer_get_now();
+	usleep(EAT_TIME);
 }
 
 void	philo_sleep(t_philo *p)
 {
 	p->stt = SLEEP;
-	print_action(p->id, "is sleeping");
-	usleep(USLEEP_TIME);
+	print_action(p->start_time, p->id, "is sleeping");
+	usleep(SLEEP_TIME);
 }
 
 void	philo_thinking(t_philo *p)
 {
 	p->stt = THINK;
-	print_action(p->id, "is thinking");
+	print_action(p->start_time, p->id, "is thinking");
 }
 
-void	philo_died(t_philo *p)
+void	philo_is_dead(t_philo *p)
 {
-	p->stt = DIED;
-	print_action(p->id, "died");
+	long	now;
+	
+	now = timer_get_now();
+	if ((now - p->eat_time) > p->eat_limit)
+	{
+		p->stt = DIED;
+		print_action(p->start_time, p->id, "died");
+	}
 }

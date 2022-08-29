@@ -6,13 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 14:01:58 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 15:56:26 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r)
+t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time)
 {
 	t_philo 		*p;
 	t_error_code	err;
@@ -34,6 +34,9 @@ t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r)
 		return (ALLOCATION_ERROR);
 	}
 	p->id = id;
+	p->start_time = start_time;
+	p->eat_limit = EAT_LIM;
+	p->eat_time = start_time;
 	*ret = p;
 	return (err);	
 }
