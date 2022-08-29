@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:21:46 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/25 11:23:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 14:00:09 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,9 @@
 void	bzero(void *ptr, size_t size)
 {
 	memset(ptr, ZERO, size);
+}
+
+int	is_even(int	n)
+{
+	return (0 == (n % 2));
 }

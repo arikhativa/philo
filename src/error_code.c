@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 11:43:31 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 12:55:39 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 13:56:01 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	error_code_print(t_error_code err)
 		internal_error_print("PTHREAD_JOIN_ERROR", err);
 	else if (PTHREAD_CREATE_ERROR == err)
 		internal_error_print("PTHREAD_CREATE_ERROR", err);
+	else if (DROP_FORK_ERROR == err)
+		internal_error_print("DROP_FORK_ERROR", err);
 	else
 		internal_error_print("UNKNOWN_ERROR", err);
 }

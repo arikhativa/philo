@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   print_action.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 15:57:03 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 13:35:42 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/29 13:48:12 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/29 13:48:31 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#ifndef PRINT_ACTION_H
+# define PRINT_ACTION_H
 
-typedef void *(*t_thread_handler)(void *);
+#include <stdio.h>
 
-# define ZERO	(0)
-# define TRUE	(1)
-# define USLEEP_TIME	(1000)
-# define FALSE	(!TRUE)
+void	print_action(int id, const char *msg);
 
 #endif

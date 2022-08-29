@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 13:00:15 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 14:04:04 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <pthread.h>
 # include <unistd.h>
 
+# include "print_action.h"
 # include "hand.h"
 # include "fork.h"
 # include "macros.h"
@@ -27,6 +28,7 @@ typedef enum e_philo_stt
 	THINK,
 	EAT,
 	SLEEP,
+	DIED,
 }	t_philo_stt;
 
 typedef struct s_philo
@@ -38,11 +40,28 @@ typedef struct s_philo
 	t_hand		*right_hand;
 }	t_philo;
 
-
+// philo
 void			philo_destroy(t_philo *p);
 t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r);
+
+// fork
+t_error_code	philo_pick_fork_left(t_philo *p);
+t_error_code	philo_pick_fork_right(t_philo *p);
+void			philo_drop_fork_right(t_philo *p);
+void			philo_drop_fork_left(t_philo *p);
+void			philo_drop_forks(t_philo *p);
+
+// handler
 void 			*philo_handler(void *arg);
+
+// thread
 t_error_code	philo_start_simulation(t_philo *p);
 t_error_code	philo_stop_simulation(t_philo *p);
+
+// stt
+void	philo_eat(t_philo *p);
+void	philo_sleep(t_philo *p);
+void	philo_thinking(t_philo *p);
+void	philo_died(t_philo *p);
 
 #endif

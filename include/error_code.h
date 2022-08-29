@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:49:28 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 12:55:24 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 13:55:54 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef enum s_error_code
 	MUTEX_LOCK_ERROR,
 	HAND_DROP_ERROR_NO_FORK,
 	ALLOCATION_ERROR,
+	DROP_FORK_ERROR,
 	PTHREAD_JOIN_ERROR,
 	PTHREAD_CREATE_ERROR,
 	MUTEX_UNLOCK_ERROR,

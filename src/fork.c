@@ -6,13 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:15:37 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 12:19:22 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 14:08:39 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fork.h"
 
-t_error_code	fork_create(t_fork **ret)
+t_error_code	fork_create(t_fork **ret, int id)
 {
 	t_fork *f;
 	int		stt;
@@ -23,6 +23,7 @@ t_error_code	fork_create(t_fork **ret)
 	stt = pthread_mutex_init(&(f->mutex), NULL);
 	if (SUCCESS != stt)
 		return (MUTEX_INIT_ERROR);
+	f->id = id;
 	*ret = f;
 	return (SUCCESS);
 }

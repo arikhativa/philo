@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:38:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 12:43:52 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 14:17:28 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_error_code	table_fork_list_init(t_table *t, int num_of_philo)
 	i = 0;
 	while (i < num_of_philo)
 	{
-		err = fork_create(t->fork_list + i);
+		err = fork_create(t->fork_list + i, i);
 		if (SUCCESS != err)
 			break ;
 		++i;
@@ -55,6 +55,6 @@ t_fork	*table_get_left_fork_by_philo(t_fork **fork_list, int i)
 t_fork	*table_get_right_fork_by_philo(t_fork **fork_list, \
 	int i, int num_of_philo)
 {
-	i = (num_of_philo + i) % (num_of_philo + i);
+	i = (num_of_philo - 1 + i) % (num_of_philo);
 	return (fork_list[i]);
 }
