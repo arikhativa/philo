@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   fork.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:15:37 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/14 17:26:36 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/08/29 11:02:11 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fork.h"
 
-t_error_code	fork_init(t_fork *f)
+t_error_code	fork_create(t_fork *f)
 {
 	int	stt;
 
+	f = malloc(sizeof(t_fork));
+	if (!f)
+		return (ALLOCATION_ERROR);
 	stt = pthread_mutex_init(&(f->mutex), NULL);
 	if (SUCCESS != stt)
 		return (MUTEX_INIT_ERROR);
@@ -29,6 +32,8 @@ t_error_code	fork_destroy(t_fork *f)
 	stt = pthread_mutex_destroy(&(f->mutex));
 	if (SUCCESS != stt)
 		return (MUTEX_DESTROY_ERROR);
+	bzero(f, sizeof(t_fork));
+	free(f);
 	return (SUCCESS);
 }
 

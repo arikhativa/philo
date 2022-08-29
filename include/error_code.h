@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_code.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 22:06:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 11:53:55 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/14 15:49:28 by yrabby            #+#    #+#             */
+/*   Updated: 2022/08/29 11:51:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef ERROR_CODE_H
+# define ERROR_CODE_H
 
-int	main(int ac, char **av)
+# include <stdio.h>
+
+typedef enum s_error_code
 {
-	(void)ac;
-	(void)av;
-	t_error_code	err;
-	t_table	*t;
+	ERROR = -1,
+	SUCCESS = 0,
+	MUTEX_INIT_ERROR,
+	MUTEX_DESTROY_ERROR,
+	MUTEX_LOCK_ERROR,
+	HAND_DROP_ERROR_NO_FORK,
+	ALLOCATION_ERROR,
+	MUTEX_UNLOCK_ERROR,
+}	t_error_code;
 
-	t = NULL;
-	err = table_create(t, 1);
-	error_code_print(err);
-	printf("hey\n");
-	printf("%d\n", t->num_of_philo);
-	// table_destroy(t);
-	return (SUCCESS);
-}
+void	error_code_print(t_error_code err);
+
+#endif

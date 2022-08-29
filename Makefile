@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+         #
+#    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 14:32:48 by yoav              #+#    #+#              #
-#    Updated: 2022/08/14 15:54:47 by yrabby           ###   ########.fr        #
+#    Updated: 2022/08/29 11:54:43 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ HEAD_NAME = $(notdir $(wildcard $(HEAD_DIR)/*.h))
 HEAD =  $(addprefix $(HEAD_DIR)/, $(HEAD_NAME))
 
 CC = cc
-CFLAGS = -c -Wall -Werror -Wextra -I$(HEAD_DIR)
+CFLAGS = -c  -I$(HEAD_DIR)
+# CFLAGS = -c -Wall -Werror -Wextra -I$(HEAD_DIR)
 #LDFLAGS =
 LDLIBS = -lpthread
 

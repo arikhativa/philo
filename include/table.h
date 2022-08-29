@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   table.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 22:06:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 11:53:55 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/29 10:37:38 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/29 11:49:26 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef TABLE_H
+# define TABLE_H
 
-int	main(int ac, char **av)
+# include <stdlib.h>
+
+# include "philo.h"
+# include "fork.h"
+# include "error_code.h"
+
+typedef struct s_table
 {
-	(void)ac;
-	(void)av;
-	t_error_code	err;
-	t_table	*t;
+	int		num_of_philo;
+	t_philo	*philo_list;
+	t_fork	*fork_list;
+}	t_table;
 
-	t = NULL;
-	err = table_create(t, 1);
-	error_code_print(err);
-	printf("hey\n");
-	printf("%d\n", t->num_of_philo);
-	// table_destroy(t);
-	return (SUCCESS);
-}
+t_error_code	table_create(t_table *ret, int num_of_philo);
+void			table_destroy(t_table *t);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/28 22:08:35 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 11:49:26 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,26 @@
 # include "hand.h"
 # include "fork.h"
 # include "macros.h"
-# include "error.h"
+# include "error_code.h"
 
 typedef enum e_philo_stt
 {
-	EAT,
 	THINK,
+	EAT,
 	SLEEP,
 }	t_philo_stt;
 
 typedef struct s_philo
 {
+	int			id;
 	pthread_t	tid;
 	t_philo_stt	stt;
-	t_hand		*left;
-	t_hand		*right;
+	t_hand		*left_hand;
+	t_hand		*right_hand;
 }	t_philo;
+
+
+void			philo_destroy(t_philo *p);
+t_error_code	philo_create(t_philo *ret, int id, t_fork *l, t_fork *r);
 
 #endif

@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 15:49:28 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/25 11:30:44 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/29 10:29:59 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/29 10:30:10 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
-
-typedef enum s_error_code
-{
-	ERROR = -1,
-	SUCCESS = 0,
-	MUTEX_INIT_ERROR,
-	MUTEX_DESTROY_ERROR,
-	MUTEX_LOCK_ERROR,
-	HAND_DROP_ERROR_NO_FORK,
-	ALLOCATION_ERROR,
-	MUTEX_UNLOCK_ERROR,
-}	t_error_code;
-
-#endif
+// number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
