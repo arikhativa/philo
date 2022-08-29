@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 10:37:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 12:42:22 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 13:20:24 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,9 @@ t_fork			*table_get_right_fork_by_philo(t_fork **fork_list, \
 // philo_list
 void	table_philo_list_free(t_philo **list, int size);
 t_error_code	table_philo_list_init(t_table *t, int num_of_philo);
+
+// simulation
+t_error_code	table_start_simulation(t_table *t);
+t_error_code	table_stop_simulation(t_table *t);
 
 #endif
