@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:10:41 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 15:47:19 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 17:56:10 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ long	timer_time_to_long(t_timer *t)
 	return (ms);
 }
 
-// void	timer_set(t_timer *t)
-// {
-// 	gettimeofday(t, NULL);
-// }
-
 long	timer_get_now(void)
 {
 	t_timer	now;
@@ -33,13 +28,3 @@ long	timer_get_now(void)
 	gettimeofday(&now, NULL);
 	return (timer_time_to_long(&now));
 }
-
-// t_timer	timer_time_passed(t_timer *t)
-// {
-// 	t_timer	now;
-
-// 	gettimeofday(&now, NULL);
-// 	now.tv_sec - t->tv_sec;
-// 	now.tv_usec - t->tv_usec;
-// 	return (now);
-// }
