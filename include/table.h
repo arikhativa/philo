@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 10:37:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 12:23:33 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 12:42:22 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,19 @@ typedef struct s_table
 	t_fork	**fork_list;
 }	t_table;
 
+// table
 t_error_code	table_create(t_table **ret, int num_of_philo);
 void			table_destroy(t_table *t);
+
+// fork_list
+void			table_fork_list_free(t_fork **list, int size);
+t_error_code	table_fork_list_init(t_table *t, int num_of_philo);
+t_fork			*table_get_left_fork_by_philo(t_fork **fork_list, int i);
+t_fork			*table_get_right_fork_by_philo(t_fork **fork_list, \
+	int i, int num_of_philo);
+
+// philo_list
+void	table_philo_list_free(t_philo **list, int size);
+t_error_code	table_philo_list_init(t_table *t, int num_of_philo);
 
 #endif

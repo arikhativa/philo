@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 22:06:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 12:33:47 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/29 12:35:52 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/29 13:00:25 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "philo.h"
 
-int	main(int ac, char **av)
+void *philo_handler(void *arg)
 {
-	(void)ac;
-	(void)av;
-	t_error_code	err;
-	t_table			*t;
+	t_philo	*p;
 
-	err = table_create(&t, 2);
-	if (SUCCESS != err)
-	{
-		error_code_print(err);
-		return (err);
-	}
-	
-	table_destroy(t);
-	return (SUCCESS);
+	p = arg;
+	printf("philo_handler id:%d\n", p->id);
+	sleep(1);
+	return (NULL);
 }
