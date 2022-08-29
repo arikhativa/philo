@@ -6,19 +6,22 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:14:28 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 10:56:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 12:20:55 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hand.h"
 
-t_error_code	hand_create(t_hand *ret, t_fork *f)
+t_error_code	hand_create(t_hand **ret, t_fork *f)
 {
-	ret = malloc(sizeof(t_hand));
-	if (!ret)
+	t_hand *h;
+
+	h = malloc(sizeof(t_hand));
+	if (!h)
 		return (ALLOCATION_ERROR);
-	bzero(ret, sizeof(t_hand));
-	ret->fork = f;
+	bzero(h, sizeof(t_hand));
+	h->fork = f;
+	*ret = h;
 	return (SUCCESS);
 }
 

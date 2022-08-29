@@ -6,15 +6,16 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:15:37 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 11:02:11 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 12:19:22 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fork.h"
 
-t_error_code	fork_create(t_fork *f)
+t_error_code	fork_create(t_fork **ret)
 {
-	int	stt;
+	t_fork *f;
+	int		stt;
 
 	f = malloc(sizeof(t_fork));
 	if (!f)
@@ -22,6 +23,7 @@ t_error_code	fork_create(t_fork *f)
 	stt = pthread_mutex_init(&(f->mutex), NULL);
 	if (SUCCESS != stt)
 		return (MUTEX_INIT_ERROR);
+	*ret = f;
 	return (SUCCESS);
 }
 

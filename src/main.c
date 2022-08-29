@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 22:06:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 11:53:55 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 12:32:00 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ int	main(int ac, char **av)
 	t_table	*t;
 
 	t = NULL;
-	err = table_create(t, 1);
+	err = table_create(&t, 2);
 	error_code_print(err);
-	printf("hey\n");
 	printf("%d\n", t->num_of_philo);
-	// table_destroy(t);
+	table_destroy(t);
 	return (SUCCESS);
 }

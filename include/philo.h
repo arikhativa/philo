@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 11:49:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 12:18:47 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ typedef struct s_philo
 
 
 void			philo_destroy(t_philo *p);
-t_error_code	philo_create(t_philo *ret, int id, t_fork *l, t_fork *r);
+t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 11:39:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/29 12:26:30 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,29 @@ void	philo_destroy(t_philo *p)
 	free(p);
 }
 
-t_error_code	philo_create(t_philo *ret, int id, t_fork *l, t_fork *r)
+t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r)
 {
+	t_philo 		*p;
 	t_error_code	err;
 
-	ret = malloc(sizeof(t_philo));
-	if (!ret)
+	p = malloc(sizeof(t_philo));
+	if (!p)
 		return (ALLOCATION_ERROR);
-	bzero(ret, sizeof(t_philo));
-	err = hand_create(ret->left_hand, l);
-	if (!ret)
+	bzero(p, sizeof(t_philo));
+	err = hand_create(&p->left_hand, l);
+	if (!p)
 	{
-		philo_destroy(ret);
+		philo_destroy(p);
 		return (ALLOCATION_ERROR);
 	}
-	err = hand_create(ret->right_hand, r);
-	if (!ret)
+	err = hand_create(&p->right_hand, r);
+	if (!p)
 	{
-		philo_destroy(ret);
+		philo_destroy(p);
 		return (ALLOCATION_ERROR);
 	}
-	ret->id = id;
+	p->id = id;
+	*ret = p;
 	return (err);	
 }
 
