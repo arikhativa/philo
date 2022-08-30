@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:13:19 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 13:48:55 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 11:11:20 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 # include "util.h"
 # include "macros.h"
-# include "print_action.h"
 # include "fork.h"
 
 typedef struct s_hand

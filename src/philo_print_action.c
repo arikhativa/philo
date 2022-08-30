@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_action.c                                     :+:      :+:    :+:   */
+/*   philo_print_action.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 13:42:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 15:49:29 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 11:13:38 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print_action.h"
+#include "philo.h"
 
-void	print_action(long timestamp, int id, const char *msg)
+void	print_action(t_philo *p, const char *msg)
 {
 	long	now;
 
+	if (!p->simulation_is_on)
+		return ;
 	now = timer_get_now();
-	printf("%ld %d %s\n", (now - timestamp), id, msg);
+	printf("% 10ld % 3d %s\n", (now - p->start_time), p->id, msg);
 }

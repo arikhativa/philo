@@ -6,11 +6,37 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:38:50 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 15:43:12 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 11:01:46 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "table.h"
+
+int	table_philo_list_is_dead(t_philo **list, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (DIED == list[i]->stt)
+			return (TRUE);
+		++i;
+	}
+	return (FALSE);
+}
+
+void	table_philo_list_stop(t_philo **list, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		philo_stop(list[i]);
+		++i;
+	}
+}
 
 void	table_philo_list_free(t_philo **list, int size)
 {

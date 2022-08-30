@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 22:06:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 15:55:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 11:05:32 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 		return (err);
 	}
 	table_start_simulation(t);
+	table_monitor_simulation(t);
 	table_stop_simulation(t);
 	table_destroy(t);
 	return (SUCCESS);

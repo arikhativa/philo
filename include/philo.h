@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/30 10:30:06 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 11:14:08 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <pthread.h>
 # include <unistd.h>
 
-# include "print_action.h"
 # include "sleep_wrapper.h"
 # include "hand.h"
+# include "timer.h"
 # include "fork.h"
 # include "macros.h"
 # include "error_code.h"
@@ -49,6 +49,9 @@ typedef struct s_philo
 void			philo_destroy(t_philo *p);
 t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time);
 
+// print
+void	print_action(t_philo *p, const char *msg);
+
 // fork
 t_error_code	philo_pick_fork_left(t_philo *p);
 t_error_code	philo_pick_fork_right(t_philo *p);
@@ -62,6 +65,7 @@ void 			*philo_handler(void *arg);
 // thread
 t_error_code	philo_start_simulation(t_philo *p);
 t_error_code	philo_stop_simulation(t_philo *p);
+void			philo_stop(t_philo *p);
 
 // stt
 void	philo_eat(t_philo *p);

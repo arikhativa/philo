@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:36:59 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 13:22:01 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 10:56:37 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ t_error_code	philo_stop_simulation(t_philo *p)
 	if (SUCCESS != stt)
 		return (PTHREAD_JOIN_ERROR);
 	return (SUCCESS);
+}
+
+void	philo_stop(t_philo *p)
+{
+	p->simulation_is_on = FALSE;
 }
