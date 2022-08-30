@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 15:51:34 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 10:30:06 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 
 # include "print_action.h"
+# include "sleep_wrapper.h"
 # include "hand.h"
 # include "fork.h"
 # include "macros.h"
@@ -34,9 +35,10 @@ typedef enum e_philo_stt
 typedef struct s_philo
 {
 	int			id;
+	int			simulation_is_on;
 	long		start_time;
 	long		eat_time;
-	long		eat_limit;
+	long		starvation_limit;
 	pthread_t	tid;
 	t_philo_stt	stt;
 	t_hand		*left_hand;
@@ -65,6 +67,6 @@ t_error_code	philo_stop_simulation(t_philo *p);
 void	philo_eat(t_philo *p);
 void	philo_sleep(t_philo *p);
 void	philo_thinking(t_philo *p);
-void	philo_is_dead(t_philo *p);
+int		philo_is_dead(t_philo *p);
 
 #endif

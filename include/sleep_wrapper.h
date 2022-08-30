@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   sleep_wrapper.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 15:57:03 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/30 10:25:49 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/30 10:21:16 by yoav              #+#    #+#             */
+/*   Updated: 2022/08/30 10:24:05 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#ifndef SLEEP_WRAPPER_H
+# define SLEEP_WRAPPER_H
 
-typedef void *(*t_thread_handler)(void *);
+# include <unistd.h>
 
-# define ZERO	(0)
-# define TRUE	(1)
-# define FALSE	(!TRUE)
-
-# define STARVATION_TIME	(1000)
-# define EAT_TIME			(3000)
-# define SLEEP_TIME			(3000)
+void	sleep_wrapper(long ms);
 
 #endif

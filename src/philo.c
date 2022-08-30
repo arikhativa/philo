@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 15:56:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 10:30:48 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long star
 	}
 	p->id = id;
 	p->start_time = start_time;
-	p->eat_limit = EAT_LIM;
+	p->starvation_limit = STARVATION_TIME;
 	p->eat_time = start_time;
+	p->simulation_is_on = TRUE;
 	*ret = p;
 	return (err);	
 }
