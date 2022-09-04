@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:45:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/30 11:21:23 by yoav             ###   ########.fr       */
+/*   Updated: 2022/08/30 11:51:24 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,3 @@ t_error_code	table_stop_simulation(t_table *t)
 {
 	return (stop_list(t->philo_list, t->num_of_philo));
 }
-
-
