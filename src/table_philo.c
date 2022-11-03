@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:38:50 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/30 11:01:46 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/03 16:15:02 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	table_philo_list_free(t_philo **list, int size)
 	free(list);
 }
 
-t_error_code	table_philo_list_init(t_table *t, int num_of_philo)
+t_error_code	table_philo_list_init(t_table *t, t_input *input)
 {
 	t_error_code	err;
 	t_fork			*l;
@@ -60,16 +60,16 @@ t_error_code	table_philo_list_init(t_table *t, int num_of_philo)
 	long	start_time;
 	int	i;
 	
-	t->philo_list = malloc(sizeof(t_philo *) * num_of_philo);
+	t->philo_list = malloc(sizeof(t_philo *) * t->num_of_philo);
 	if (!t->philo_list)
 		return (ALLOCATION_ERROR);
 	start_time = timer_get_now();
 	i = 0;
-	while (i < num_of_philo)
+	while (i < t->num_of_philo)
 	{
 		l = table_get_left_fork_by_philo(t->fork_list, i);
-		r = table_get_right_fork_by_philo(t->fork_list, i, num_of_philo);
-		err = philo_create((t->philo_list + i), i, l, r, start_time);
+		r = table_get_right_fork_by_philo(t->fork_list, i, t->num_of_philo);
+		err = philo_create((t->philo_list + i), (i + 1), l, r, start_time, input);
 		if (SUCCESS != err)
 			break ;
 		++i;

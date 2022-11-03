@@ -6,13 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 10:37:02 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 13:21:12 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/03 15:52:03 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "table.h"
 
-t_error_code	table_create(t_table **ret, int num_of_philo)
+t_error_code	table_create(t_table **ret, t_input	*i)
 {
 	t_table 		*t;
 	t_error_code	err;
@@ -21,11 +21,11 @@ t_error_code	table_create(t_table **ret, int num_of_philo)
 	if (!t)
 		return (ALLOCATION_ERROR);
 	bzero(t, sizeof(t_table));
-	t->num_of_philo = num_of_philo;
-	err = table_fork_list_init(t, num_of_philo);
+	t->num_of_philo = i->philo;
+	err = table_fork_list_init(t, t->num_of_philo);
 	if (SUCCESS == err)
 	{
-		err = table_philo_list_init(t, num_of_philo);
+		err = table_philo_list_init(t, i);
 		if (SUCCESS != err)
 			table_fork_list_free(t->fork_list, t->num_of_philo);
 	}

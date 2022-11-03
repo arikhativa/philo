@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:35:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/30 10:59:11 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/03 17:14:23 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // start right
 // then try left
-static void	even_handler(t_philo *p)
+static void	odd_handler(t_philo *p)
 {
 	t_error_code	err;
 
@@ -38,7 +38,7 @@ static void	even_handler(t_philo *p)
 }
 
 // start left only
-static void	odd_handler(t_philo *p)
+static void	even_handler(t_philo *p)
 {
 	t_error_code	err;
 
@@ -69,9 +69,9 @@ void	*philo_handler(void *arg)
 
 	p = arg;
 	philo_thinking(p);
-	if (is_even(p->id))
-		even_handler(p);
-	else
+	if (!is_even(p->id) && !is_last_philo(p->id, p->i->philo))
 		odd_handler(p);
+	else
+		even_handler(p);
 	return (NULL);
 }

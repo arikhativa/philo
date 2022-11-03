@@ -6,13 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/30 10:30:48 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/03 15:34:50 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time)
+t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time, t_input *i)
 {
 	t_philo 		*p;
 	t_error_code	err;
@@ -35,9 +35,10 @@ t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long star
 	}
 	p->id = id;
 	p->start_time = start_time;
-	p->starvation_limit = STARVATION_TIME;
+	p->starvation_limit = i->time_to_die;
 	p->eat_time = start_time;
 	p->simulation_is_on = TRUE;
+	p->i = i;
 	*ret = p;
 	return (err);	
 }

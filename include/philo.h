@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/30 11:14:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/03 15:49:54 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "sleep_wrapper.h"
 # include "hand.h"
 # include "timer.h"
+# include "input.h"
 # include "fork.h"
 # include "macros.h"
 # include "error_code.h"
@@ -43,11 +44,12 @@ typedef struct s_philo
 	t_philo_stt	stt;
 	t_hand		*left_hand;
 	t_hand		*right_hand;
+	t_input		*i;
 }	t_philo;
 
 // philo
 void			philo_destroy(t_philo *p);
-t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time);
+t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time, t_input *i);
 
 // print
 void	print_action(t_philo *p, const char *msg);
