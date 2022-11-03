@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 11:43:31 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 13:56:01 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/03 14:58:14 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	internal_error_print(const char *msg, t_error_code err)
 {
 	printf("%s: %d\n", msg, err);
 }
-
-void	error_code_print(t_error_code err)
+	
+t_error_code	error_code_print(t_error_code err)
 {
 	if (ERROR == err)
 		internal_error_print("ERROR", err);
@@ -41,6 +41,11 @@ void	error_code_print(t_error_code err)
 		internal_error_print("PTHREAD_CREATE_ERROR", err);
 	else if (DROP_FORK_ERROR == err)
 		internal_error_print("DROP_FORK_ERROR", err);
+	else if (ERROR_MISSING_ARG == err)
+		internal_error_print("ERROR_MISSING_ARG", err);
+	else if (ERROR_TOO_MANY_ARG == err)
+		internal_error_print("ERROR_TOO_MANY_ARG", err);
 	else
 		internal_error_print("UNKNOWN_ERROR", err);
+	return (SUCCESS);
 }

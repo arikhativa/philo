@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   input.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 22:07:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/03 14:54:04 by yoav             ###   ########.fr       */
+/*   Created: 2022/11/03 14:39:22 by yoav              #+#    #+#             */
+/*   Updated: 2022/11/03 15:01:56 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef INPUT_H
+# define INPUT_H
 
-# include <stdio.h>
+# include <stdlib.h>
 
 # include "macros.h"
-# include "timer.h"
-# include "input.h"
-# include "table.h"
+# include "ft_atoi.h"
+# include "error_code.h"
+
+typedef int	t_ms;
+
+typedef struct s_input
+{
+	int		philo;
+	t_ms	time_to_die;
+	t_ms	time_to_eat;
+	t_ms	time_to_sleep;
+	int		should_eat;
+}	t_input;
+
+t_error_code	input_create(t_input **ret);
+t_error_code	input_init(t_input *i, int ac, char **av);
+void			input_destroy(t_input **obj);
+void			input_print(t_input *i);
 
 #endif

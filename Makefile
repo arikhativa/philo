@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 14:32:48 by yoav              #+#    #+#              #
-#    Updated: 2022/08/30 11:48:54 by yoav             ###   ########.fr        #
+#    Updated: 2022/11/03 14:29:56 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = philo
 
 HEAD_NAME = $(notdir $(wildcard $(HEAD_DIR)/*.h))
 SRC = $(notdir $(wildcard $(SRC_DIR)/*.c))
-
 
 OBJ_DIR = ./obj
 SRC_DIR = src
@@ -26,6 +25,7 @@ HEAD =  $(addprefix $(HEAD_DIR)/, $(HEAD_NAME))
 CC = cc
 CFLAGS = -c -Wall -Werror -Wextra -I$(HEAD_DIR)
 LDLIBS = -lpthread
+LDFLAGS = -L$(LIBFT_DIR)
 
 .PHONY: clean fclean re all
 
@@ -35,8 +35,12 @@ $(addprefix $(OBJ_DIR)/, %.o): $(addprefix $(SRC_DIR)/, %.c) $(HEAD)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $^ $(LDLIBS) -o $@
+$(NAME): $(OBJ_DIR) $(OBJ)
+	$(CC) $(OBJ) $(LDLIBS) -o $@
+
+$(OBJ_DIR):
+	@cp -a $(SRC_DIR) $(OBJ_DIR)
+	@$(RM) $(OBJ:.o=.c)
 
 clean:
 	$(RM) $(OBJ)

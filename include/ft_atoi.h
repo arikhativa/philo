@@ -1,13 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/29 10:29:59 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 10:30:10 by yoav             ###   ########.fr       */
+/*   Created: 2022/11/03 14:46:46 by yoav              #+#    #+#             */
+/*   Updated: 2022/11/03 14:46:54 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+#ifndef FT_ATOI_H
+# define FT_ATOI_H
+
+int	ft_atoi(const char *nptr);
+
+#endif
