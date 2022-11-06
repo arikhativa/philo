@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:13:19 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 10:43:46 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 12:57:26 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 typedef struct s_hand
 {
-	pthread_mutex_t	check_fork;
 	t_fork			*fork;
 }	t_hand;
 
