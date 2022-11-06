@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:35:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 12:55:06 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 13:25:35 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ static void	odd_handler(t_philo *p)
 				philo_sleep(p);
 				philo_thinking(p);
 			}
-			else
-				philo_drop_fork_right(p);
 		}
 	}
 }
@@ -44,6 +42,7 @@ static void	even_handler(t_philo *p)
 {
 	t_error_code	err;
 
+	sleep_wrapper(p->i->time_to_eat);
 	while (p->simulation_is_on)
 	{
 		if (TRUE == philo_is_dead(p) || TRUE == philo_is_done_eating(p))
@@ -59,8 +58,6 @@ static void	even_handler(t_philo *p)
 				philo_sleep(p);
 				philo_thinking(p);
 			}
-			else
-				philo_drop_fork_left(p);
 		}
 	}
 }
@@ -70,7 +67,6 @@ void	*philo_handler(void *arg)
 	t_philo	*p;
 
 	p = arg;
-	philo_thinking(p);
 	if (!is_even(p->id) && !is_last_philo(p->id, p->i->philo))
 		odd_handler(p);
 	else

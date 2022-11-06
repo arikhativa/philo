@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 13:37:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 12:54:53 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 13:26:45 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	philo_sleep(t_philo *p)
 		return ;
 	p->stt = SLEEP;
 	print_action(p, "is sleeping");
+	sleep_wrapper(p->i->time_to_sleep);
 }
 
 void	philo_thinking(t_philo *p)
