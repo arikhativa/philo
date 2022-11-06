@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:35:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/03 17:14:23 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 10:59:55 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static void	odd_handler(t_philo *p)
 				philo_sleep(p);
 				philo_thinking(p);
 			}
+			else
+				philo_drop_fork_right(p);
 		}
 	}
 }
