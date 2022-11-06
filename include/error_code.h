@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:49:28 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/03 14:55:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 10:33:22 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef enum s_error_code
 	PTHREAD_CREATE_ERROR,
 	MUTEX_UNLOCK_ERROR,
 	ERROR_MISSING_ARG,
+	FORK_IS_USED,
 	ERROR_TOO_MANY_ARG,
 }	t_error_code;
 

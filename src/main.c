@@ -6,16 +6,11 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 22:06:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/03 16:15:13 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 10:52:24 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-
-void	print_philo(t_philo *p)
-{
-	printf("ph: %d fork_l: %d fork_r: %d\n",p->id,p->left_hand->fork->id,p->right_hand->fork->id);
-}
 
 int	main(int ac, char **av)
 {

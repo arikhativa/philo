@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:15:55 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 14:08:50 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 10:43:23 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 typedef struct s_fork
 {
+	int				is_used;
 	int				id;
 	pthread_mutex_t mutex;
 }	t_fork;

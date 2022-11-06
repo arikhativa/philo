@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/03 15:34:50 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 10:11:54 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long star
 	p->eat_time = start_time;
 	p->simulation_is_on = TRUE;
 	p->i = i;
+	err = pthread_mutex_init(&(p->print_mutex), NULL);
+	if (SUCCESS != err)
+		return (MUTEX_INIT_ERROR);
 	*ret = p;
 	return (err);	
 }
@@ -49,6 +52,7 @@ void	philo_destroy(t_philo *p)
 		hand_destroy(p->left_hand);
 	if (p->right_hand)
 		hand_destroy(p->right_hand);
+	pthread_mutex_destroy(&(p->print_mutex));
 	bzero(p, sizeof(t_philo));
 	free(p);
 }
