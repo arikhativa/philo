@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 10:37:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/03 15:52:51 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:09:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void			table_philo_list_free(t_philo **list, int size);
 t_error_code	table_philo_list_init(t_table *t, t_input	*input);
 void			table_philo_list_stop(t_philo **list, int size);
 int				table_philo_list_is_dead(t_philo **list, int size);
+int				table_philo_list_is_done(t_philo **list, int size);
 
 // simulation
 t_error_code	table_start_simulation(t_table *t);

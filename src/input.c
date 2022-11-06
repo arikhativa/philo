@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:39:10 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/03 15:01:34 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:07:44 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ t_error_code	input_init(t_input *i, int ac, char **av)
 	i->time_to_eat = ft_atoi(av[3]);
 	i->time_to_sleep = ft_atoi(av[4]);
 	if (6 == ac)
-		i->should_eat = ft_atoi(av[5]);
+		i->meals_to_eat = ft_atoi(av[5]);
 	else
-		i->should_eat = ERROR;
+		i->meals_to_eat = ERROR;
 	return (SUCCESS);
 }
 
@@ -52,7 +52,7 @@ void	input_destroy(t_input **obj)
 void	input_print(t_input *i)
 {
 	printf("input:\n\tphilo: %d\n\ttime_to_die: %d\n\ttime_to_eat: \
-		%d\n\ttime_to_sleep: %d\n\tshould_eat: %d\n", \
+		%d\n\ttime_to_sleep: %d\n\tmeals_to_eat: %d\n", \
 		i->philo, i->time_to_die, i->time_to_eat, i->time_to_sleep, \
-		i->should_eat);
+		i->meals_to_eat);
 }

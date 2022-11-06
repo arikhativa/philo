@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:39:22 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/03 15:01:56 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:07:44 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_input
 	t_ms	time_to_die;
 	t_ms	time_to_eat;
 	t_ms	time_to_sleep;
-	int		should_eat;
+	int		meals_to_eat;
 }	t_input;
 
 t_error_code	input_create(t_input **ret);

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:35:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 10:59:55 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:12:44 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	odd_handler(t_philo *p)
 
 	while (p->simulation_is_on)
 	{
-		if (TRUE == philo_is_dead(p))
+		if (TRUE == philo_is_dead(p) || TRUE == philo_is_done_eating(p))
 			return ;
 		err = philo_pick_fork_right(p);
 		if (SUCCESS == err)
@@ -46,7 +46,7 @@ static void	even_handler(t_philo *p)
 
 	while (p->simulation_is_on)
 	{
-		if (TRUE == philo_is_dead(p))
+		if (TRUE == philo_is_dead(p) || TRUE == philo_is_done_eating(p))
 			return ;
 		err = philo_pick_fork_left(p);
 		if (SUCCESS == err)

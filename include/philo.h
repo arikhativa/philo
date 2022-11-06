@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/06 10:22:36 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:12:13 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef enum e_philo_stt
 	EAT,
 	SLEEP,
 	DIED,
+	DONE_EATING,
 }	t_philo_stt;
 
 typedef struct s_philo
@@ -40,13 +41,13 @@ typedef struct s_philo
 	long			start_time;
 	long			eat_time;
 	long			starvation_limit;
+	int				num_of_meals;
 	pthread_t		tid;
 	t_philo_stt		stt;
 	t_hand			*left_hand;
 	t_hand			*right_hand;
 	t_input			*i;
 	pthread_mutex_t	print_mutex;
-
 }	t_philo;
 
 // philo
@@ -77,5 +78,6 @@ void	philo_eat(t_philo *p);
 void	philo_sleep(t_philo *p);
 void	philo_thinking(t_philo *p);
 int		philo_is_dead(t_philo *p);
+int		philo_is_done_eating(t_philo *p);
 
 #endif

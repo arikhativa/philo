@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:45:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 10:22:43 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:09:01 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,16 @@ static void	print_dead_if_needed(t_table *t)
 	}
 }
 
+static int	should_stop_simulation(t_table *t)
+{
+	int	is_p_dead;
+	int	is_done_eating;
+
+	is_done_eating = table_philo_list_is_done(t->philo_list, t->num_of_philo);
+	is_p_dead = table_philo_list_is_dead(t->philo_list, t->num_of_philo);
+	return (is_done_eating || is_p_dead);
+}
+
 void	table_monitor_simulation(t_table *t)
 {
 	int	loop;
@@ -70,7 +80,7 @@ void	table_monitor_simulation(t_table *t)
 	loop = TRUE;
 	while (loop)
 	{
-		if (table_philo_list_is_dead(t->philo_list, t->num_of_philo))
+		if (should_stop_simulation(t))
 		{
 			loop = FALSE;
 			table_philo_list_stop(t->philo_list, t->num_of_philo);
