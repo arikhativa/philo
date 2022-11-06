@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/06 11:12:13 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:46:26 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_philo
 	long			eat_time;
 	long			starvation_limit;
 	int				num_of_meals;
+	long			time_of_death;
 	pthread_t		tid;
 	t_philo_stt		stt;
 	t_hand			*left_hand;
@@ -56,7 +57,7 @@ t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long star
 
 // print
 void			print_action(t_philo *p, const char *msg);
-void			print_dead(t_philo *p, const char *msg);
+void			print_dead(t_philo *p);
 
 // fork
 t_error_code	philo_pick_fork_left(t_philo *p);

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:38:50 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 11:11:00 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:52:16 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	table_philo_list_is_dead(t_philo **list, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (DIED == list[i]->stt)
+		if (philo_is_dead(list[i]) || DIED == list[i]->stt)
 			return (TRUE);
 		++i;
 	}

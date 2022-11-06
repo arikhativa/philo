@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:45:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 11:09:01 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 11:57:42 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_error_code	table_start_simulation(t_table *t)
 	i = 0;
 	while (i < t->num_of_philo)
 	{
-		err = philo_start_simulation(t->philo_list[t->num_of_philo - i - 1]);
+		err = philo_start_simulation(t->philo_list[i]);
 		if (SUCCESS != err)
 		{
 			(void)stop_list(t->philo_list, i);
@@ -56,7 +56,7 @@ static void	print_dead_if_needed(t_table *t)
 	{
 		if (DIED == t->philo_list[i]->stt)
 		{
-			print_dead(t->philo_list[i], "died");
+			print_dead(t->philo_list[i]);
 			return ;
 		}
 		++i;
@@ -86,10 +86,14 @@ void	table_monitor_simulation(t_table *t)
 			table_philo_list_stop(t->philo_list, t->num_of_philo);
 		}
 	}
-	print_dead_if_needed(t);
 }	
 
 t_error_code	table_stop_simulation(t_table *t)
 {
-	return (stop_list(t->philo_list, t->num_of_philo));
+	t_error_code	err;
+
+	err = stop_list(t->philo_list, t->num_of_philo);
+	if (SUCCESS == err)
+		print_dead_if_needed(t);
+	return (err);
 }
