@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:14:28 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 12:25:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 12:50:19 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	hand_destroy(t_hand *h)
 	free(h);
 }
 
-t_error_code	hand_try_pick_fork(t_hand *h)
+t_error_code	hand_pick_fork(t_hand *h)
 {
 	t_error_code	err;
 	int				is_fork_used;
@@ -49,15 +49,6 @@ t_error_code	hand_try_pick_fork(t_hand *h)
 	if (SUCCESS == err)
 		h->fork->is_used = TRUE;
 	pthread_mutex_unlock(&(h->check_fork));
-	return (err);
-}
-
-t_error_code	hand_pick_fork(t_hand *h)
-{
-	t_error_code	err;
-	
-	err = fork_pick(h->fork);
-		h->fork->is_used = TRUE;
 	return (err);
 }
 

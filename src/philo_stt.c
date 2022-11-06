@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 13:37:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 12:12:55 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/06 12:54:53 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,34 +30,15 @@ void	philo_sleep(t_philo *p)
 	if (DIED == p->stt || DONE_EATING == p->stt)
 		return ;
 	p->stt = SLEEP;
-	// print_action(p, "is sleeping");
+	print_action(p, "is sleeping");
 }
-// void	philo_sleep(t_philo *p)
-// {
-// 	long	start;
-// 	long	now;
-
-// 	if (DIED == p->stt || DONE_EATING == p->stt)
-// 		return ;
-// 	p->stt = SLEEP;
-// 	start = timer_get_now();
-// 	print_action(p, "is sleeping");
-// 	now = start;
-// 	while (now < start +p->i->time_to_sleep)
-// 	{
-// 		if (philo_is_dead(p))
-// 			return ;
-// 		sleep_wrapper(1);
-// 		now = timer_get_now();
-// 	}
-// }
 
 void	philo_thinking(t_philo *p)
 {
 	if (DIED == p->stt || DONE_EATING == p->stt)
 		return ;
 	p->stt = THINK;
-	// print_action(p, "is thinking");
+	print_action(p, "is thinking");
 }
 
 int	philo_is_dead(t_philo *p)
