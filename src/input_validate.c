@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:39:10 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/07 12:30:07 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 15:45:34 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,27 @@ t_error_code	input_validate(int ac, char **av)
 		}
 		++i;
 	}
+	return (SUCCESS);
+}
+
+static t_error_code	check_field(int	f)
+{
+	if (0 == f)
+		return (ERROR);
+	return (SUCCESS);
+}
+
+t_error_code	input_validate_object(t_input *i)
+{
+	t_error_code	err;
+
+	err = SUCCESS;
+	err += check_field(i->meals_to_eat);
+	err += check_field(i->philo);
+	err += check_field(i->time_to_sleep);
+	err += check_field(i->time_to_die);
+	err += check_field(i->time_to_eat);
+	if (SUCCESS != err)
+		return (ERROR);
 	return (SUCCESS);
 }

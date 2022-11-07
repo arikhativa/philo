@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:39:22 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/07 12:23:06 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 15:45:53 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_error_code	input_validate(int ac, char **av);
 t_error_code	input_init(t_input *i, int ac, char **av);
 void			input_destroy(t_input **obj);
 void			input_print(t_input *i);
+t_error_code	input_validate_object(t_input *i);
 
 #endif

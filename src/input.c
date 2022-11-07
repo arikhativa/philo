@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:39:10 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/07 12:19:33 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 15:45:44 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_error_code	input_init(t_input *i, int ac, char **av)
 		i->meals_to_eat = ft_atoi(av[5]);
 	else
 		i->meals_to_eat = ERROR;
-	return (SUCCESS);
+	return (input_validate_object(i));
 }
 
 void	input_destroy(t_input **obj)
