@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:49:28 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/06 10:33:22 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 12:22:48 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef enum s_error_code
 	ERROR_MISSING_ARG,
 	FORK_IS_USED,
 	ERROR_TOO_MANY_ARG,
+	ERROR_NON_DIGIT_ARG,
 }	t_error_code;
 
 t_error_code	error_code_print(t_error_code err);

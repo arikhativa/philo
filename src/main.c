@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 22:06:37 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/07 11:47:18 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 12:27:28 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ int	main(int ac, char **av)
 	t_table			*t;
 	t_input			*i;
 
+	err = input_validate(ac, av);
+	if (SUCCESS != err)
+		return (error_code_print(err));
 	err = input_create(&i);
 	if (SUCCESS != err)
 		return (error_code_print(err));

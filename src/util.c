@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:21:46 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/07 11:45:48 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 12:24:51 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,9 @@ int	is_even(int n)
 int	is_last_philo(int id, int num_of_philo)
 {
 	return (id == num_of_philo);
+}
+
+int	is_digit(char c)
+{
+	return ('0' <= c && '9' >= c);
 }
