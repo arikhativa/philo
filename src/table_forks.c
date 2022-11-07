@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:38:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/29 14:17:28 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 11:46:51 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	table_fork_list_free(t_fork **list, int size)
 t_error_code	table_fork_list_init(t_table *t, int num_of_philo)
 {
 	t_error_code	err;
-	int	i;
-	
+	int				i;
+
 	t->fork_list = malloc(sizeof(t_fork *) * num_of_philo);
 	if (!t->fork_list)
 		return (ALLOCATION_ERROR);

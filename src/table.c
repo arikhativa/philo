@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 10:37:02 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/03 15:52:03 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 11:44:30 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_error_code	table_create(t_table **ret, t_input	*i)
 {
-	t_table 		*t;
+	t_table			*t;
 	t_error_code	err;
 
 	t = malloc(sizeof(t_table));

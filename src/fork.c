@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:15:37 by yrabby            #+#    #+#             */
-/*   Updated: 2022/08/29 14:08:39 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 11:42:26 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_error_code	fork_create(t_fork **ret, int id)
 {
-	t_fork *f;
+	t_fork	*f;
 	int		stt;
 
 	f = malloc(sizeof(t_fork));

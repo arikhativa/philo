@@ -6,15 +6,15 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/06 10:11:54 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 11:45:37 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time, t_input *i)
+t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r)
 {
-	t_philo 		*p;
+	t_philo			*p;
 	t_error_code	err;
 
 	p = malloc(sizeof(t_philo));
@@ -33,17 +33,21 @@ t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long star
 		philo_destroy(p);
 		return (ALLOCATION_ERROR);
 	}
+	err = pthread_mutex_init(&(p->print_mutex), NULL);
+	if (SUCCESS != err)
+		return (MUTEX_INIT_ERROR);
+	*ret = p;
+	return (err);
+}
+
+void	philo_init(t_philo *p, int id, long start_time, t_input *i)
+{
 	p->id = id;
 	p->start_time = start_time;
 	p->starvation_limit = i->time_to_die;
 	p->eat_time = start_time;
 	p->simulation_is_on = TRUE;
 	p->i = i;
-	err = pthread_mutex_init(&(p->print_mutex), NULL);
-	if (SUCCESS != err)
-		return (MUTEX_INIT_ERROR);
-	*ret = p;
-	return (err);	
 }
 
 void	philo_destroy(t_philo *p)

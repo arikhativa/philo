@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/06 11:46:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 11:47:40 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ typedef struct s_philo
 
 // philo
 void			philo_destroy(t_philo *p);
-t_error_code	philo_create(t_philo **ret, int id, t_fork *l, t_fork *r, long start_time, t_input *i);
+t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r);
+void			philo_init(t_philo *p, int id, long start_time, t_input *i);
 
 // print
 void			print_action(t_philo *p, const char *msg);
@@ -67,7 +68,7 @@ void			philo_drop_fork_left(t_philo *p);
 void			philo_drop_forks(t_philo *p);
 
 // handler
-void 			*philo_handler(void *arg);
+void			*philo_handler(void *arg);
 
 // thread
 t_error_code	philo_start_simulation(t_philo *p);
@@ -75,10 +76,10 @@ t_error_code	philo_stop_simulation(t_philo *p);
 void			philo_stop(t_philo *p);
 
 // stt
-void	philo_eat(t_philo *p);
-void	philo_sleep(t_philo *p);
-void	philo_thinking(t_philo *p);
-int		philo_is_dead(t_philo *p);
-int		philo_is_done_eating(t_philo *p);
+void			philo_eat(t_philo *p);
+void			philo_sleep(t_philo *p);
+void			philo_thinking(t_philo *p);
+int				philo_is_dead(t_philo *p);
+int				philo_is_done_eating(t_philo *p);
 
 #endif

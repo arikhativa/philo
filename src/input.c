@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:39:10 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 11:07:44 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 11:47:01 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_error_code	input_init(t_input *i, int ac, char **av)
 void	input_destroy(t_input **obj)
 {
 	t_input	*i;
-	
+
 	i = *obj;
 	free(i);
 	*obj = NULL;

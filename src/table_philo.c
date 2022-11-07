@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:38:50 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 11:52:16 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/07 11:49:52 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ t_error_code	table_philo_list_init(t_table *t, t_input *input)
 	t_error_code	err;
 	t_fork			*l;
 	t_fork			*r;
-	long	start_time;
-	int	i;
-	
+	long			start_time;
+	int				i;
+
 	t->philo_list = malloc(sizeof(t_philo *) * t->num_of_philo);
 	if (!t->philo_list)
 		return (ALLOCATION_ERROR);
@@ -85,9 +85,10 @@ t_error_code	table_philo_list_init(t_table *t, t_input *input)
 	{
 		l = table_get_left_fork_by_philo(t->fork_list, i);
 		r = table_get_right_fork_by_philo(t->fork_list, i, t->num_of_philo);
-		err = philo_create((t->philo_list + i), (i + 1), l, r, start_time, input);
+		err = philo_create((t->philo_list + i), l, r);
 		if (SUCCESS != err)
 			break ;
+		philo_init(t->philo_list[i], (i + 1), start_time, input);
 		++i;
 	}
 	if (SUCCESS != err)

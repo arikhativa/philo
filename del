@@ -1,0 +1,58 @@
+src/table_thread.c: Error!
+Error: TOO_MANY_FUNCS       (line:  91, col:   1):	Too many functions in file
+src/philo_fork.c: Error!
+Error: SPACE_EMPTY_LINE     (line:  18, col:   1):	Space on empty line
+Error: SPACE_EMPTY_LINE     (line:  28, col:   1):	Space on empty line
+src/table_philo.c: Error!
+Error: MISALIGNED_VAR_DECL  (line:  76, col:  13):	Misaligned variable declaration
+Error: MISALIGNED_VAR_DECL  (line:  77, col:   9):	Misaligned variable declaration
+Error: SPACE_EMPTY_LINE     (line:  78, col:   1):	Space on empty line
+Error: LINE_TOO_LONG        (line:  88, col:  82):	line too long
+src/fork.c: Error!
+Error: SPACE_REPLACE_TAB    (line:  17, col:  11):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  18, col:  13):	Misaligned variable declaration
+src/table.c: Error!
+Error: MIXED_SPACE_TAB      (line:  17, col:  12):	Mixed spaces and tabs
+Error: SPACE_REPLACE_TAB    (line:  17, col:  12):	Found space when expecting tab
+src/error_code.c: Error!
+Error: SPACE_EMPTY_LINE     (line:  19, col:   1):	Space on empty line
+Error: BRACE_SHOULD_EOL     (line:  51, col:   1):	Expected newline after brace
+Error: TOO_MANY_LINES       (line:  51, col:   1):	Function has more than 25 lines
+src/philo.c: Error!
+Error: LINE_TOO_LONG        (line:  15, col:  90):	line too long
+Error: TOO_MANY_ARGS        (line:  15, col: 103):	Function has more than 4 arguments
+Error: MIXED_SPACE_TAB      (line:  17, col:  12):	Mixed spaces and tabs
+Error: SPACE_REPLACE_TAB    (line:  17, col:  12):	Found space when expecting tab
+Error: TAB_INSTEAD_SPC      (line:  46, col:  18):	Found tab when expecting space
+Error: TOO_MANY_LINES       (line:  47, col:   1):	Function has more than 25 lines
+src/util.c: Error!
+Error: TAB_INSTEAD_SPC      (line:  20, col:  16):	Found tab when expecting space
+src/hand.c: Error!
+Error: SPACE_REPLACE_TAB    (line:  17, col:  11):	Found space when expecting tab
+Error: SPACE_EMPTY_LINE     (line:  37, col:   1):	Space on empty line
+src/table_forks.c: Error!
+Error: MISALIGNED_VAR_DECL  (line:  32, col:   9):	Misaligned variable declaration
+Error: SPACE_EMPTY_LINE     (line:  33, col:   1):	Space on empty line
+src/input.c: Error!
+Error: SPACE_EMPTY_LINE     (line:  46, col:   1):	Space on empty line
+src/main.c: Error!
+Error: RETURN_PARENTHESIS   (line:  23, col:  16):	Return value must be in parenthesis
+Error: RETURN_PARENTHESIS   (line:  26, col:  16):	Return value must be in parenthesis
+include/philo.h: Error!
+Error: LINE_TOO_LONG        (line:  56, col:  90):	line too long
+Error: TOO_MANY_ARGS        (line:  56, col: 103):	Function has more than 4 arguments
+Error: MIXED_SPACE_TAB      (line:  70, col:   5):	Mixed spaces and tabs
+Error: SPACE_REPLACE_TAB    (line:  70, col:   5):	Found space when expecting tab
+Error: MISALIGNED_FUNC_DECL (line:  78, col:   9):	Misaligned function declaration
+Error: MISALIGNED_FUNC_DECL (line:  79, col:   9):	Misaligned function declaration
+Error: MISALIGNED_FUNC_DECL (line:  80, col:   9):	Misaligned function declaration
+Error: MISALIGNED_FUNC_DECL (line:  81, col:   9):	Misaligned function declaration
+Error: MISALIGNED_FUNC_DECL (line:  82, col:   9):	Misaligned function declaration
+include/timer.h: Error!
+Error: SPACE_REPLACE_TAB    (line:  20, col:  23):	Found space when expecting tab
+include/macros.h: Error!
+Error: SPACE_REPLACE_TAB    (line:  16, col:  13):	Found space when expecting tab
+include/fork.h: Error!
+Error: SPACE_REPLACE_TAB    (line:  25, col:  20):	Found space when expecting tab
+include/util.h: Error!
+Error: TAB_INSTEAD_SPC      (line:  21, col:  20):	Found tab when expecting space
