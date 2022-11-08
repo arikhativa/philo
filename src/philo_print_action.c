@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 13:42:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/08 11:34:05 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 12:00:35 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_action(t_philo *p, const char *msg, long time)
 {
-	if (!p->simulation_is_on)
-		return ;
+	// if (!p->simulation_is_on)
+	// 	return ;
 	pthread_mutex_lock(&(p->print_mutex));
 	printf("%ld %d %s\n", (time - p->start_time), p->id, msg);
 	pthread_mutex_unlock(&(p->print_mutex));

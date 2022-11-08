@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/08 11:30:24 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 12:08:18 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@
 
 typedef enum e_philo_stt
 {
-	THINK,
-	EAT,
-	SLEEP,
+	RUN,
 	DIED,
 	DONE_EATING,
 }	t_philo_stt;
@@ -80,6 +78,7 @@ void			philo_eat(t_philo *p);
 void			philo_sleep(t_philo *p);
 void			philo_thinking(t_philo *p);
 int				philo_is_dead(t_philo *p);
+int				philo_check_dead(t_philo *p);
 int				philo_is_done_eating(t_philo *p);
 
 #endif
