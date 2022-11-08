@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_bool.h                                           :+:      :+:    :+:   */
+/*   m_value.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 12:17:51 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/08 12:29:38 by yoav             ###   ########.fr       */
+/*   Created: 2022/08/29 12:36:59 by yoav              #+#    #+#             */
+/*   Updated: 2022/11/08 12:29:12 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTEX_BOOL_H
-# define MUTEX_BOOL_H
+#include "m_value.h"
 
-# include <stdlib.h>
-# include <pthread.h>
-
-# include "macros.h"
-# include "error_code.h"
-
-typedef struct s_m_bool
+void	m_value_lock(t_m_value *mb)
 {
-	int				on;
-	pthread_mutex_t	mutex;
-}	t_m_bool;
+	pthread_mutex_lock(&(mb->mutex));
+}
 
-t_error_code	m_bool_create(t_m_bool **ret);
-void			m_bool_destroy(t_m_bool **obj);
-int				m_bool_is_true(t_m_bool *mb);
-void			m_bool_set(t_m_bool *mb, int value);
+void	m_value_set_no_lock(t_m_value *mb, int value)
+{
+	mb->on = value;
+}
 
-#endif
+void	m_value_unlock(t_m_value *mb)
+{
+	pthread_mutex_unlock(&(mb->mutex));
+}

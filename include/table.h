@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 10:37:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/07 11:49:32 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 14:39:52 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@
 
 typedef struct s_table
 {
-	int		num_of_philo;
-	t_philo	**philo_list;
-	t_fork	**fork_list;
-	t_input	*i;
+	int			num_of_philo;
+	t_philo		**philo_list;
+	t_fork		**fork_list;
+	t_input		*i;
+	t_m_value	*simulation_is_on;
 }	t_table;
 
 // table

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_bool.c                                           :+:      :+:    :+:   */
+/*   m_value.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "m_bool.h"
+#include "m_value.h"
 
-t_error_code	m_bool_create(t_m_bool **ret)
+t_error_code	m_value_create(t_m_value **ret)
 {
-	t_m_bool	*mb;
+	t_m_value	*mb;
 	int			stt;
 
-	mb = malloc(sizeof(t_m_bool));
+	mb = malloc(sizeof(t_m_value));
 	if (!mb)
 		return (ALLOCATION_ERROR);
 	stt = pthread_mutex_init(&(mb->mutex), NULL);
@@ -28,17 +28,18 @@ t_error_code	m_bool_create(t_m_bool **ret)
 	return (SUCCESS);
 }
 
-void	m_bool_destroy(t_m_bool **obj)
+void	m_value_destroy(t_m_value **obj)
 {
-	t_m_bool	*mb;
+	t_m_value	*mb;
 
 	mb = *obj;
 	pthread_mutex_destroy(&(mb->mutex));
-	bzero(mb, sizeof(t_m_bool));
-	free(obj);
+	bzero(mb, sizeof(t_m_value));
+	free(mb);
+	*obj = NULL;
 }
 
-int	m_bool_is_true(t_m_bool *mb)
+int	m_value_get(t_m_value *mb)
 {
 	int	ret;
 
@@ -48,10 +49,10 @@ int	m_bool_is_true(t_m_bool *mb)
 	return (TRUE == ret);
 }
 
-void	m_bool_set(t_m_bool *mb, int value)
+void	m_value_set(t_m_value *mb, int value)
 {
 	pthread_mutex_lock(&(mb->mutex));
-	mb->on = (!!value);
+	mb->on = value;
 	pthread_mutex_unlock(&(mb->mutex));
 }
 

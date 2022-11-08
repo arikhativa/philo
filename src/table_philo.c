@@ -6,12 +6,14 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:38:50 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/07 11:49:52 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 15:15:55 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "table.h"
 
+
+// TODO change this
 int	table_philo_list_is_dead(t_philo **list, int size)
 {
 	int	i;
@@ -19,7 +21,7 @@ int	table_philo_list_is_dead(t_philo **list, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (philo_is_dead(list[i]) || DIED == list[i]->stt)
+		if (philo_check_dead(list[i]) || DIED == list[i]->stt)
 			return (TRUE);
 		++i;
 	}
@@ -40,18 +42,6 @@ int	table_philo_list_is_done(t_philo **list, int size)
 		++i;
 	}
 	return (p_done_eating == size);
-}
-
-void	table_philo_list_stop(t_philo **list, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		philo_stop(list[i]);
-		++i;
-	}
 }
 
 void	table_philo_list_free(t_philo **list, int size)
@@ -85,7 +75,7 @@ t_error_code	table_philo_list_init(t_table *t, t_input *input)
 	{
 		l = table_get_left_fork_by_philo(t->fork_list, i);
 		r = table_get_right_fork_by_philo(t->fork_list, i, t->num_of_philo);
-		err = philo_create((t->philo_list + i), l, r);
+		err = philo_create((t->philo_list + i), l, r, t->simulation_is_on);
 		if (SUCCESS != err)
 			break ;
 		philo_init(t->philo_list[i], (i + 1), start_time, input);

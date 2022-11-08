@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:36:59 by yoav              #+#    #+#             */
-/*   Updated: 2022/08/30 10:56:37 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 15:15:45 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ t_error_code	philo_stop_simulation(t_philo *p)
 	return (SUCCESS);
 }
 
-void	philo_stop(t_philo *p)
+// TODO bad way
+int	philo_is_simulation_on(t_philo *p)
 {
-	p->simulation_is_on = FALSE;
+	return (m_value_get(p->simulation_is_on) || DONE_EATING == p->stt);
 }
+

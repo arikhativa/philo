@@ -6,13 +6,14 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/07 11:45:37 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 14:39:17 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r)
+t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r, \
+	t_m_value *simulation_is_on)
 {
 	t_philo			*p;
 	t_error_code	err;
@@ -22,17 +23,12 @@ t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r)
 		return (ALLOCATION_ERROR);
 	bzero(p, sizeof(t_philo));
 	err = hand_create(&p->left_hand, l);
-	if (!p)
-	{
-		philo_destroy(p);
-		return (ALLOCATION_ERROR);
-	}
+	if (SUCCESS != err)
+		return (err);
 	err = hand_create(&p->right_hand, r);
-	if (!p)
-	{
-		philo_destroy(p);
-		return (ALLOCATION_ERROR);
-	}
+	if (SUCCESS != err)
+		return (err);
+	p->simulation_is_on = simulation_is_on;
 	err = pthread_mutex_init(&(p->print_mutex), NULL);
 	if (SUCCESS != err)
 		return (MUTEX_INIT_ERROR);
@@ -46,7 +42,6 @@ void	philo_init(t_philo *p, int id, long start_time, t_input *i)
 	p->start_time = start_time;
 	p->starvation_limit = i->time_to_die;
 	p->eat_time = start_time;
-	p->simulation_is_on = TRUE;
 	p->i = i;
 }
 

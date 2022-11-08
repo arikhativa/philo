@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:49:28 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/08 11:04:12 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 14:46:52 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ typedef enum s_error_code
 {
 	ERROR = -1,
 	SUCCESS = 0,
-	MUTEX_INIT_ERROR,
-	MUTEX_DESTROY_ERROR,
-	MUTEX_LOCK_ERROR,
-	HAND_DROP_ERROR_NO_FORK,
-	ALLOCATION_ERROR,
-	DROP_FORK_ERROR,
+	MUTEX_INIT_ERROR = 1,
+	MUTEX_DESTROY_ERROR = 2,
+	MUTEX_LOCK_ERROR = 3,
+	HAND_DROP_ERROR_NO_FORK = 4,
+	ALLOCATION_ERROR = 5,
+	DROP_FORK_ERROR = 6,
 	PTHREAD_JOIN_ERROR,
 	PTHREAD_CREATE_ERROR,
 	MUTEX_UNLOCK_ERROR,
@@ -33,6 +33,8 @@ typedef enum s_error_code
 	ERROR_ONE_PHILO,
 	ERROR_TOO_MANY_ARG,
 	ERROR_NON_DIGIT_ARG,
+	END_SIMULATION,
+	NO_FORK,
 }	t_error_code;
 
 t_error_code	error_code_print(t_error_code err);
