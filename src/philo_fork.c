@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:01:45 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/07 11:37:07 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 11:33:09 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_error_code	philo_pick_fork_left(t_philo *p)
 
 	err = hand_pick_fork(p->left_hand);
 	if (SUCCESS == err)
-		print_action(p, "has taken a fork");
+		print_action(p, "has taken a fork", timer_get_now());
 	return (err);
 }
 
@@ -28,7 +28,7 @@ t_error_code	philo_pick_fork_right(t_philo *p)
 
 	err = hand_pick_fork(p->right_hand);
 	if (SUCCESS == err)
-		print_action(p, "has taken a fork");
+		print_action(p, "has taken a fork", timer_get_now());
 	return (err);
 }
 

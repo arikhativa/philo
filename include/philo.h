@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/07 11:47:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 11:30:24 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r);
 void			philo_init(t_philo *p, int id, long start_time, t_input *i);
 
 // print
-void			print_action(t_philo *p, const char *msg);
+void			print_action(t_philo *p, const char *msg, long time);
 void			print_dead(t_philo *p);
 
 // fork

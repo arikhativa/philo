@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:35:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/06 13:25:35 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/08 11:05:54 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void	odd_handler(t_philo *p)
 			if (SUCCESS == err)
 			{
 				philo_eat(p);
-				philo_drop_forks(p);
 				philo_sleep(p);
 				philo_thinking(p);
 			}
@@ -54,7 +53,6 @@ static void	even_handler(t_philo *p)
 			if (SUCCESS == err)
 			{
 				philo_eat(p);
-				philo_drop_forks(p);
 				philo_sleep(p);
 				philo_thinking(p);
 			}
