@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/09 11:19:27 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 12:17:03 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r, \
 	err = hand_create(&p->right_hand, r);
 	if (SUCCESS != err)
 		return (err);
+	err = m_value_create(&(p->eat_time));
+	if (SUCCESS != err)
+		return (err);
 	p->simulation_is_on = simulation_is_on;
 	*ret = p;
 	return (err);
@@ -38,7 +41,7 @@ void	philo_init(t_philo *p, int id, long start_time, t_input *i)
 	p->id = id;
 	p->start_time = start_time;
 	p->starvation_limit = i->time_to_die;
-	p->eat_time = start_time;
+	m_value_set(p->eat_time, start_time);
 	p->i = i;
 }
 
@@ -53,6 +56,8 @@ void	philo_destroy(t_philo *p)
 		hand_destroy(p->left_hand);
 	if (p->right_hand)
 		hand_destroy(p->right_hand);
+	if (p->eat_time)
+		m_value_destroy(&(p->eat_time));
 	bzero(p, sizeof(t_philo));
 	free(p);
 }

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 13:37:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/09 11:51:46 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 12:34:34 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	philo_eat_sleep(t_philo *p)
 {
+	long	eat_time;
+
 	if (!philo_is_simulation_on(p))
 		return ;
 	print_action_lock(p);
-	p->eat_time = timer_get_now();
-	print_action_no_lock(p, "has taken a fork", p->eat_time);
-	print_action_no_lock(p, "has taken a fork", p->eat_time);
-	print_action_no_lock(p, "is eating", p->eat_time);
+	eat_time = timer_get_now();
+	m_value_set(p->eat_time, eat_time);
+	print_action_no_lock(p, "has taken a fork", eat_time);
+	print_action_no_lock(p, "has taken a fork", eat_time);
+	print_action_no_lock(p, "is eating", eat_time);
 	++p->num_of_meals;
 	if (p->num_of_meals == p->i->meals_to_eat)
 		p->stt = DONE_EATING;
@@ -49,7 +52,7 @@ int	philo_check_dead(t_philo *p)
 	if (DONE_EATING == p->stt)
 		return (ret);
 	now = timer_get_now();
-	if ((now - p->eat_time) > p->starvation_limit)
+	if ((now - m_value_get(p->eat_time)) > p->starvation_limit)
 	{
 		p->time_of_death = now;
 		p->stt = DIED;

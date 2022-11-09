@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:57:31 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/09 11:57:41 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 12:34:09 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_error_code	m_value_create(t_m_value **ret)
 	mb = malloc(sizeof(t_m_value));
 	if (!mb)
 		return (ALLOCATION_ERROR);
+	bzero(mb, sizeof(t_m_value));
 	stt = pthread_mutex_init(&(mb->mutex), NULL);
 	if (SUCCESS != stt)
 		return (MUTEX_INIT_ERROR);
-	mb->on = FALSE;
 	*ret = mb;
 	return (SUCCESS);
 }
@@ -39,19 +39,19 @@ void	m_value_destroy(t_m_value **obj)
 	*obj = NULL;
 }
 
-int	m_value_get(t_m_value *mb)
+long	m_value_get(t_m_value *mb)
 {
-	int	ret;
+	long	ret;
 
 	pthread_mutex_lock(&(mb->mutex));
-	ret = mb->on;
+	ret = mb->value;
 	pthread_mutex_unlock(&(mb->mutex));
-	return (TRUE == ret);
+	return (ret);
 }
 
-void	m_value_set(t_m_value *mb, int value)
+void	m_value_set(t_m_value *mb, long value)
 {
 	pthread_mutex_lock(&(mb->mutex));
-	mb->on = value;
+	mb->value = value;
 	pthread_mutex_unlock(&(mb->mutex));
 }

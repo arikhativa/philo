@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/09 11:47:15 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 12:17:08 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_philo
 	int				id;
 	t_m_value		*simulation_is_on;
 	long			start_time;
-	long			eat_time;
+	t_m_value		*eat_time;
 	long			starvation_limit;
 	int				num_of_meals;
 	long			time_of_death;
