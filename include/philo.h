@@ -6,14 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:48:14 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/08 14:56:57 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 11:47:15 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-# include <printf.h>
 # include <pthread.h>
 # include <unistd.h>
 
@@ -47,7 +46,7 @@ typedef struct s_philo
 	t_hand			*left_hand;
 	t_hand			*right_hand;
 	t_input			*i;
-	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	*print_mutex;
 }	t_philo;
 
 // philo
@@ -55,6 +54,7 @@ void			philo_destroy(t_philo *p);
 t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r, \
 	t_m_value *simulation_is_on);
 void			philo_init(t_philo *p, int id, long start_time, t_input *i);
+void			philo_init2(t_philo *p, pthread_mutex_t *print_mutex);
 void			philo_exit_if_needed(t_philo *p);
 
 // print
@@ -83,6 +83,5 @@ int				philo_is_simulation_on(t_philo *p);
 void			philo_eat_sleep(t_philo *p);
 void			philo_thinking(t_philo *p);
 int				philo_check_dead(t_philo *p);
-int				philo_is_done_eating(t_philo *p);
 
 #endif

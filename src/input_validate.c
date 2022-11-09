@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 14:39:10 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/08 11:04:14 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 11:54:19 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_error_code	input_validate(int ac, char **av)
 	return (SUCCESS);
 }
 
-static t_error_code	check_field(int	f)
+static t_error_code	check_field(int f)
 {
 	if (0 == f)
 		return (ERROR);

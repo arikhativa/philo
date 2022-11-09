@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 10:37:02 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/08 14:41:31 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 11:21:39 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ t_error_code	table_create(t_table **ret, t_input	*i)
 	if (SUCCESS != err)
 		return (err);
 	m_value_set(t->simulation_is_on, TRUE);
+	err = pthread_mutex_init(&(t->print_mutex), NULL);
+	if (SUCCESS != err)
+		return (MUTEX_INIT_ERROR);
 	t->num_of_philo = i->philo;
 	err = table_fork_list_init(t, t->num_of_philo);
 	if (SUCCESS == err)
@@ -45,6 +48,7 @@ void	table_destroy(t_table *t)
 		table_fork_list_free(t->fork_list, t->num_of_philo);
 	if (t->simulation_is_on)
 		m_value_destroy(&(t->simulation_is_on));
+	pthread_mutex_destroy(&(t->print_mutex));
 	bzero(t, sizeof(t_table));
 	free(t);
 }

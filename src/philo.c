@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:47:25 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/08 14:39:17 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 11:19:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r, \
 	if (SUCCESS != err)
 		return (err);
 	p->simulation_is_on = simulation_is_on;
-	err = pthread_mutex_init(&(p->print_mutex), NULL);
-	if (SUCCESS != err)
-		return (MUTEX_INIT_ERROR);
 	*ret = p;
 	return (err);
 }
@@ -45,13 +42,17 @@ void	philo_init(t_philo *p, int id, long start_time, t_input *i)
 	p->i = i;
 }
 
+void	philo_init2(t_philo *p, pthread_mutex_t *print_mutex)
+{
+	p->print_mutex = print_mutex;
+}
+
 void	philo_destroy(t_philo *p)
 {
 	if (p->left_hand)
 		hand_destroy(p->left_hand);
 	if (p->right_hand)
 		hand_destroy(p->right_hand);
-	pthread_mutex_destroy(&(p->print_mutex));
 	bzero(p, sizeof(t_philo));
 	free(p);
 }

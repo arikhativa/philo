@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:45:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/08 14:43:03 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 11:24:39 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ void	table_monitor_simulation(t_table *t)
 	loop = TRUE;
 	while (loop)
 	{
+		pthread_mutex_lock(&(t->print_mutex));
 		if (should_stop_simulation(t))
 		{
 			loop = FALSE;
 			m_value_set(t->simulation_is_on, FALSE);
 		}
+		pthread_mutex_unlock(&(t->print_mutex));
 	}
 }	
 

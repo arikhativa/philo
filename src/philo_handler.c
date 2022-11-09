@@ -6,14 +6,12 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:35:52 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/08 14:56:50 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 12:01:02 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// start right
-// then try left
 static void	odd_handler(t_philo *p)
 {
 	while (philo_is_simulation_on(p))
@@ -26,7 +24,6 @@ static void	odd_handler(t_philo *p)
 	philo_drop_forks(p);
 }
 
-// start left only
 static void	even_handler(t_philo *p)
 {
 	sleep_wrapper(p->i->time_to_eat);
@@ -45,10 +42,9 @@ void	*philo_handler(void *arg)
 	t_philo	*p;
 
 	p = arg;
-	if (!is_even(p->id))
-	// if (!is_even(p->id) && !is_last_philo(p->id, p->i->philo))
-		odd_handler(p);
-	else
+	if (is_even(p->id))
 		even_handler(p);
+	else
+		odd_handler(p);
 	return (NULL);
 }

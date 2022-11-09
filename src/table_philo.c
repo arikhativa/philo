@@ -6,14 +6,12 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 12:38:50 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/08 15:15:55 by yoav             ###   ########.fr       */
+/*   Updated: 2022/11/09 11:58:12 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "table.h"
 
-
-// TODO change this
 int	table_philo_list_is_dead(t_philo **list, int size)
 {
 	int	i;
@@ -21,7 +19,7 @@ int	table_philo_list_is_dead(t_philo **list, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (philo_check_dead(list[i]) || DIED == list[i]->stt)
+		if (philo_check_dead(list[i]))
 			return (TRUE);
 		++i;
 	}
@@ -79,6 +77,7 @@ t_error_code	table_philo_list_init(t_table *t, t_input *input)
 		if (SUCCESS != err)
 			break ;
 		philo_init(t->philo_list[i], (i + 1), start_time, input);
+		philo_init2(t->philo_list[i], &(t->print_mutex));
 		++i;
 	}
 	if (SUCCESS != err)

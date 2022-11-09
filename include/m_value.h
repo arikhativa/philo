@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_value.h                                           :+:      :+:    :+:   */
+/*   m_value.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 12:17:51 by yoav              #+#    #+#             */
-/*   Updated: 2022/11/08 12:29:38 by yoav             ###   ########.fr       */
+/*   Created: 2022/11/09 11:55:24 by yoav              #+#    #+#             */
+/*   Updated: 2022/11/09 11:55:44 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTEX_BOOL_H
-# define MUTEX_BOOL_H
+#ifndef M_VALUE_H
+# define M_VALUE_H
 
 # include <stdlib.h>
 # include <pthread.h>
@@ -33,4 +33,5 @@ void			m_value_set(t_m_value *mb, int value);
 void			m_value_lock(t_m_value *mb);
 void			m_value_set_no_lock(t_m_value *mb, int value);
 void			m_value_unlock(t_m_value *mb);
+
 #endif
