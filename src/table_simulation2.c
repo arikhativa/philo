@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/11/27 14:59:53 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	print_dead_if_needed(t_table *t)
 	i = 0;
 	while (i < t->num_of_philo)
 	{
-		if (DIED == t->philo_list[i]->stt)
+		if (DIED == m_value_get(t->philo_list[i]->stt))
 		{
 			print_dead(t->philo_list[i]);
 			return ;

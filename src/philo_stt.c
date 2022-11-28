@@ -6,27 +6,40 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/11/28 12:33:09 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	eat_hdlr(t_philo *p)
+{
+	++p->num_of_meals;
+	if (p->num_of_meals == p->i->meals_to_eat)
+	{
+		m_value_lock(p->stt);
+		if (RUN == m_value_get_no_lock(p->stt))
+			m_value_set_no_lock(p->stt, DONE_EATING);
+		m_value_unlock(p->stt);
+	}
+}
 
 void	philo_eat_sleep(t_philo *p)
 {
 	long	eat_time;
 
 	if (!philo_is_simulation_on(p))
+	{
+		philo_drop_forks(p);
 		return ;
+	}
 	print_action_lock(p);
 	eat_time = timer_get_now();
 	m_value_set(p->eat_time, eat_time);
 	print_action_no_lock(p, "has taken a fork", eat_time);
 	print_action_no_lock(p, "has taken a fork", eat_time);
 	print_action_no_lock(p, "is eating", eat_time);
-	++p->num_of_meals;
-	if (p->num_of_meals == p->i->meals_to_eat)
-		p->stt = DONE_EATING;
+	eat_hdlr(p);
 	print_action_unlock(p);
 	sleep_wrapper(p->i->time_to_eat);
 	print_action_lock(p);
@@ -49,14 +62,19 @@ int	philo_check_dead(t_philo *p)
 	int		ret;
 
 	ret = FALSE;
-	if (DONE_EATING == p->stt)
+	m_value_lock(p->stt);
+	if (DONE_EATING == m_value_get_no_lock(p->stt))
+	{
+		m_value_unlock(p->stt);
 		return (ret);
+	}
 	now = timer_get_now();
 	if ((now - m_value_get(p->eat_time)) > p->starvation_limit)
 	{
 		p->time_of_death = now;
-		p->stt = DIED;
+		m_value_set_no_lock(p->stt, DIED);
 		ret = TRUE;
 	}
+	m_value_unlock(p->stt);
 	return (ret);
 }

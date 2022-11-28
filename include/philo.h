@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/11/27 14:56:25 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_philo
 	int				num_of_meals;
 	long			time_of_death;
 	pthread_t		tid;
-	t_philo_stt		stt;
+	t_m_value		*stt;
 	t_hand			*left_hand;
 	t_hand			*right_hand;
 	t_input			*i;
