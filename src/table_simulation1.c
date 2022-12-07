@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 18:14:07 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 18:20:12 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ t_error_code	table_start_simulation(t_table *t)
 		f = philo_odd_handler;
 		is_sleep = TRUE;
 	}
-	err = loop(t, 0, f, FALSE);
+	err = loop(t, 0, f, is_sleep);
 	if (SUCCESS != err)
 		return (err);
-	err = loop(t, 1, f, FALSE);
+	err = loop(t, 1, f, is_sleep);
 	if (SUCCESS != err)
 		return (err);
 	return (SUCCESS);
