@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 10:40:21 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:40:38 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_error_code	table_create(t_table **ret, t_input	*i)
 		if (SUCCESS != err)
 			table_fork_list_free(t->fork_list, t->num_of_philo);
 	}
+	t->input = i;
 	*ret = t;
 	return (err);
 }

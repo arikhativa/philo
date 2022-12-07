@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:41:20 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,20 @@ t_error_code	table_start_simulation(t_table *t)
 			(void)stop_list(t->philo_list, i);
 			return (err);
 		}
-		++i;
+		i += 2;
+		sleep_wrapper(t->input->time_to_eat / 2);
+	}
+	i = 1;
+	while (i < t->num_of_philo)
+	{
+		err = philo_start_simulation(t->philo_list[i]);
+		if (SUCCESS != err)
+		{
+			(void)stop_list(t->philo_list, i);
+			return (err);
+		}
+		i += 2;
+		sleep_wrapper(t->input->time_to_eat / 2);
 	}
 	return (SUCCESS);
 }

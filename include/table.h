@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:40:18 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_table
 	int				num_of_philo;
 	t_philo			**philo_list;
 	t_fork			**fork_list;
-	t_input			*i;
+	t_input			*input;
 	t_m_value		*simulation_is_on;
 	pthread_mutex_t	print_mutex;
 }	t_table;
