@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 13:53:14 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:38:15 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_error_code	philo_stop_simulation(t_philo *p)
 
 int	philo_is_simulation_on(t_philo *p)
 {
-	if (DONE_EATING == m_value_get_no_lock(p->stt))
+	if (DONE_EATING == m_value_get(p->stt))
 		return (FALSE);
-	return (m_value_get_no_lock(p->simulation_is_on));
+	return (m_value_get(p->simulation_is_on));
 }

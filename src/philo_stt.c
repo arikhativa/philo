@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 14:24:30 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:32:14 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	philo_check_dead(t_philo *p)
 	int		ret;
 
 	ret = FALSE;
+	m_value_lock(p->eat_time);
 	m_value_lock(p->stt);
 	if (DONE_EATING == m_value_get_no_lock(p->stt))
 	{
@@ -76,6 +77,7 @@ int	philo_check_dead(t_philo *p)
 		m_value_set_no_lock(p->stt, DIED);
 		ret = TRUE;
 	}
+	m_value_unlock(p->eat_time);
 	m_value_unlock(p->stt);
 	return (ret);
 }

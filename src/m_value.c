@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 13:56:01 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:39:56 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,14 @@ void	m_value_set(t_m_value *mb, long value)
 	pthread_mutex_lock(&(mb->mutex));
 	mb->value = value;
 	pthread_mutex_unlock(&(mb->mutex));
+}
+
+long	m_value_get(t_m_value *mb)
+{
+	long	ret;
+
+	pthread_mutex_lock(&(mb->mutex));
+	ret = mb->value;
+	pthread_mutex_unlock(&(mb->mutex));
+	return (ret);
 }
