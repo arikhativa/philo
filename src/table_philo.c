@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 13:55:25 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 15:00:36 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	table_philo_list_is_done(t_philo **list, int size)
 	p_done_eating = 0;
 	while (i < size)
 	{
-		if (DONE_EATING == m_value_get_no_lock(list[i]->stt))
+		if (DONE_EATING == m_value_get(list[i]->stt))
 			++p_done_eating;
 		++i;
 	}

@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 14:09:48 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 15:04:31 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	even_handler(t_philo *p)
 {
 	t_error_code	err;
 
-	sleep_wrapper((p->i->time_to_eat / 3));
+	sleep_wrapper((p->i->time_to_eat / 3) + 1);
 	while (philo_is_simulation_on(p))
 	{
 		err = philo_pick_fork_left(p);

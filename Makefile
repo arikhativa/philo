@@ -6,7 +6,7 @@
 #    By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 14:32:48 by yoav              #+#    #+#              #
-#    Updated: 2022/12/07 14:47:12 by yrabby           ###   ########.fr        #
+#    Updated: 2022/12/07 14:49:08 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ SRC = error_code.c \
 
 OBJ_DIR = ./obj
 SRC_DIR = src
-OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c \=.o))
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 HEAD_DIR = include
 HEAD =  $(addprefix $(HEAD_DIR)/, $(HEAD_NAME))
@@ -67,11 +67,6 @@ LDFLAGS = -L$(LIBFT_DIR)
 $(addprefix $(OBJ_DIR)/, %.o): $(addprefix $(SRC_DIR)/, %.c \) $(HEAD)
 	mkdir -p  $(OBJ_DIR)
 	$(CC) $(CFLAGS) $< -o $@
-
-
-t:
-	@echo $(SRC)
-
 
 all: $(NAME)
 
