@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 11:55:42 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:35:37 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	odd_handler(t_philo *p)
 			philo_drop_fork_right(p);
 			return ;
 		}
-		philo_eat_sleep_think(p);
+		philo_eat_sleep(p);
 		philo_thinking(p);
 	}
 }
@@ -48,7 +48,7 @@ static void	even_handler(t_philo *p)
 			philo_drop_fork_left(p);
 			return ;
 		}
-		philo_eat_sleep_think(p);
+		philo_eat_sleep(p);
 		philo_thinking(p);
 	}
 }
