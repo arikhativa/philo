@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 14:15:59 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:24:38 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,12 @@ void	table_monitor_simulation(t_table *t)
 	loop = TRUE;
 	while (loop)
 	{
-		sleep_wrapper(6);
-		pthread_mutex_lock(&(t->print_mutex));
+		sleep_wrapper(2);
 		if (should_stop_simulation(t))
 		{
 			loop = FALSE;
 			m_value_set(t->simulation_is_on, FALSE);
 		}
-		pthread_mutex_unlock(&(t->print_mutex));
 	}
 }	
 
