@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 13:54:42 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:05:59 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,11 @@
 t_error_code	hand_create(t_hand **ret, t_fork *f)
 {
 	t_hand			*h;
-	t_error_code	err;
 
 	h = malloc(sizeof(t_hand));
 	if (!h)
 		return (ALLOCATION_ERROR);
 	ft_bzero(h, sizeof(t_hand));
-	err = m_value_create(&(h->is_picked));
-	if (SUCCESS != err)
-		return (err);
-	m_value_set(h->is_picked, FALSE);
 	h->fork = f;
 	*ret = h;
 	return (SUCCESS);
@@ -32,8 +27,6 @@ t_error_code	hand_create(t_hand **ret, t_fork *f)
 
 void	hand_destroy(t_hand *h)
 {
-	if (h->is_picked)
-		m_value_destroy(&(h->is_picked));
 	ft_bzero(h, sizeof(t_hand));
 	free(h);
 }
@@ -42,10 +35,7 @@ t_error_code	hand_pick_fork(t_hand *h)
 {
 	t_error_code	err;
 
-	m_value_lock(h->is_picked);
-	m_value_set_no_lock(h->is_picked, TRUE);
 	err = fork_pick(h->fork);
-	m_value_unlock(h->is_picked);
 	return (err);
 }
 
@@ -53,11 +43,6 @@ t_error_code	hand_drop_fork(t_hand *h)
 {
 	t_error_code	err;
 
-	if (FALSE == m_value_get_no_lock(h->is_picked))
-		return (NO_FORK);
-	m_value_lock(h->is_picked);
-	m_value_set_no_lock(h->is_picked, FALSE);
 	err = fork_drop(h->fork);
-	m_value_unlock(h->is_picked);
 	return (err);
 }

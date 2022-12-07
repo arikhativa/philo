@@ -6,7 +6,7 @@
 #    By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 14:32:48 by yoav              #+#    #+#              #
-#    Updated: 2022/12/07 13:05:22 by yrabby           ###   ########.fr        #
+#    Updated: 2022/12/07 13:56:40 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ HEAD_DIR = include
 HEAD =  $(addprefix $(HEAD_DIR)/, $(HEAD_NAME))
 
 CC = cc
-CFLAGS = -c -Wall -Werror -Wextra -fsanitize=thread -I$(HEAD_DIR)
-LDLIBS = -lpthread -fsanitize=thread 
+CFLAGS = -c -Wall -Werror -Wextra -I$(HEAD_DIR)
+LDLIBS = -lpthread 
 LDFLAGS = -L$(LIBFT_DIR)
 
 .PHONY: clean fclean re all
