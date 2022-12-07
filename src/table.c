@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 10:40:21 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_error_code	table_create(t_table **ret, t_input	*i)
 	t = malloc(sizeof(t_table));
 	if (!t)
 		return (ALLOCATION_ERROR);
-	bzero(t, sizeof(t_table));
+	ft_bzero(t, sizeof(t_table));
 	err = m_value_create(&(t->simulation_is_on));
 	if (SUCCESS != err)
 		return (err);
@@ -49,6 +49,6 @@ void	table_destroy(t_table *t)
 	if (t->simulation_is_on)
 		m_value_destroy(&(t->simulation_is_on));
 	pthread_mutex_destroy(&(t->print_mutex));
-	bzero(t, sizeof(t_table));
+	ft_bzero(t, sizeof(t_table));
 	free(t);
 }

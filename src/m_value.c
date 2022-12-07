@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 10:40:21 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_error_code	m_value_create(t_m_value **ret)
 	mb = malloc(sizeof(t_m_value));
 	if (!mb)
 		return (ALLOCATION_ERROR);
-	bzero(mb, sizeof(t_m_value));
+	ft_bzero(mb, sizeof(t_m_value));
 	stt = pthread_mutex_init(&(mb->mutex), NULL);
 	if (SUCCESS != stt)
 		return (MUTEX_INIT_ERROR);
@@ -34,7 +34,7 @@ void	m_value_destroy(t_m_value **obj)
 
 	mb = *obj;
 	pthread_mutex_destroy(&(mb->mutex));
-	bzero(mb, sizeof(t_m_value));
+	ft_bzero(mb, sizeof(t_m_value));
 	free(mb);
 	*obj = NULL;
 }

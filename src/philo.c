@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/27 14:58:40 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 10:40:21 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_error_code	philo_create(t_philo **ret, t_fork *l, t_fork *r, \
 	p = malloc(sizeof(t_philo));
 	if (!p)
 		return (ALLOCATION_ERROR);
-	bzero(p, sizeof(t_philo));
+	ft_bzero(p, sizeof(t_philo));
 	err = hand_create(&p->left_hand, l);
 	if (SUCCESS != err)
 		return (err);
@@ -63,6 +63,6 @@ void	philo_destroy(t_philo *p)
 		m_value_destroy(&(p->eat_time));
 	if (p->stt)
 		m_value_destroy(&(p->stt));
-	bzero(p, sizeof(t_philo));
+	ft_bzero(p, sizeof(t_philo));
 	free(p);
 }

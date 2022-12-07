@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/27 14:56:25 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 11:53:44 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_error_code	philo_stop_simulation(t_philo *p);
 int				philo_is_simulation_on(t_philo *p);
 
 // stt
-void			philo_eat_sleep(t_philo *p);
+void			philo_eat_sleep_think(t_philo *p);
 void			philo_thinking(t_philo *p);
 int				philo_check_dead(t_philo *p);
 

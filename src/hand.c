@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 10:40:21 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_error_code	hand_create(t_hand **ret, t_fork *f)
 	h = malloc(sizeof(t_hand));
 	if (!h)
 		return (ALLOCATION_ERROR);
-	bzero(h, sizeof(t_hand));
+	ft_bzero(h, sizeof(t_hand));
 	err = m_value_create(&(h->is_picked));
 	if (SUCCESS != err)
 		return (err);
@@ -34,7 +34,7 @@ void	hand_destroy(t_hand *h)
 {
 	if (h->is_picked)
 		m_value_destroy(&(h->is_picked));
-	bzero(h, sizeof(t_hand));
+	ft_bzero(h, sizeof(t_hand));
 	free(h);
 }
 

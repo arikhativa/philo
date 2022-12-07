@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 10:40:21 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_error_code	fork_destroy(t_fork *f)
 	stt = pthread_mutex_destroy(&(f->mutex));
 	if (SUCCESS != stt)
 		return (MUTEX_DESTROY_ERROR);
-	bzero(f, sizeof(t_fork));
+	ft_bzero(f, sizeof(t_fork));
 	free(f);
 	return (SUCCESS);
 }
