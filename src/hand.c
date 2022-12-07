@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 10:40:21 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:54:42 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_error_code	hand_drop_fork(t_hand *h)
 {
 	t_error_code	err;
 
-	if (FALSE == m_value_get(h->is_picked))
+	if (FALSE == m_value_get_no_lock(h->is_picked))
 		return (NO_FORK);
 	m_value_lock(h->is_picked);
 	m_value_set_no_lock(h->is_picked, FALSE);

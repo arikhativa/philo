@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 10:40:21 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:56:01 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,6 @@ void	m_value_destroy(t_m_value **obj)
 	ft_bzero(mb, sizeof(t_m_value));
 	free(mb);
 	*obj = NULL;
-}
-
-long	m_value_get(t_m_value *mb)
-{
-	long	ret;
-
-	pthread_mutex_lock(&(mb->mutex));
-	ret = mb->value;
-	pthread_mutex_unlock(&(mb->mutex));
-	return (ret);
 }
 
 void	m_value_set(t_m_value *mb, long value)

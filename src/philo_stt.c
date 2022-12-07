@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 11:56:03 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:55:10 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	eat_hdlr(t_philo *p)
 	}
 }
 
-void	philo_eat_sleep_think(t_philo *p)
+void	philo_eat_sleep(t_philo *p)
 {
 	long	eat_time;
 
@@ -69,7 +69,7 @@ int	philo_check_dead(t_philo *p)
 		return (ret);
 	}
 	now = timer_get_now();
-	if ((now - m_value_get(p->eat_time)) > p->starvation_limit)
+	if ((now - m_value_get_no_lock(p->eat_time)) > p->starvation_limit)
 	{
 		p->time_of_death = now;
 		m_value_set_no_lock(p->stt, DIED);
