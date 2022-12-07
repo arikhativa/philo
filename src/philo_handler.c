@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 17:30:57 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:48:56 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,26 @@ static void	left_handler(t_philo *p)
 	}
 }
 
-void	*philo_handler(void *arg)
+void	*philo_odd_handler(void *arg)
+{
+	t_philo	*p;
+
+	p = arg;
+	if (is_even(p->id))
+		left_handler(p);
+	else
+		right_handler(p);
+	return (NULL);
+}
+
+void	*philo_even_handler(void *arg)
 {
 	t_philo	*p;
 
 	p = arg;
 	if (1 == p->id)
-			left_handler(p);
+		left_handler(p);
 	else
-	{
-		// if (!is_even(p->id))
-		// 	sleep_wrapper(p->i->time_to_eat);
 		right_handler(p);
-	}
 	return (NULL);
 }

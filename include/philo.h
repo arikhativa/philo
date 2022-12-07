@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 12:35:36 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:55:26 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include "fork.h"
 # include "macros.h"
 # include "error_code.h"
+
+typedef void	*(*t_philo_handler)(void *arg);
 
 typedef enum e_philo_stt
 {
@@ -72,10 +74,11 @@ void			philo_drop_fork_left(t_philo *p);
 void			philo_drop_forks(t_philo *p);
 
 // handler
-void			*philo_handler(void *arg);
+void			*philo_odd_handler(void *arg);
+void			*philo_even_handler(void *arg);
 
 // thread
-t_error_code	philo_start_simulation(t_philo *p);
+t_error_code	philo_start_simulation(t_philo *p, t_philo_handler f);
 t_error_code	philo_stop_simulation(t_philo *p);
 int				philo_is_simulation_on(t_philo *p);
 

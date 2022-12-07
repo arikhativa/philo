@@ -6,17 +6,17 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 14:38:15 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:52:43 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_error_code	philo_start_simulation(t_philo *p)
+t_error_code	philo_start_simulation(t_philo *p, t_philo_handler f)
 {
 	int	stt;
 
-	stt = pthread_create(&(p->tid), NULL, philo_handler, p);
+	stt = pthread_create(&(p->tid), NULL, f, p);
 	if (SUCCESS != stt)
 		return (PTHREAD_CREATE_ERROR);
 	return (SUCCESS);
