@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/12/07 18:00:52 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/07 18:14:07 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,27 +51,23 @@ t_error_code	table_start_simulation(t_table *t)
 {
 	t_error_code	err;
 	t_philo_handler	f;
+	int				is_sleep;
 
 	if (is_even(t->input->philo))
 	{
 		f = philo_even_handler;
-		err = loop(t, 0, f, FALSE);
-		if (SUCCESS != err)
-			return (err);
-		sleep_wrapper(t->input->time_to_eat / 2);
-		err = loop(t, 1, f, FALSE);
-		if (SUCCESS != err)
-			return (err);
+		is_sleep = FALSE;
 	}
 	else
 	{
 		f = philo_odd_handler;
-		err = loop(t, 0, f, TRUE);
-		if (SUCCESS != err)
-			return (err);
-		err = loop(t, 1, f, TRUE);
-		if (SUCCESS != err)
-			return (err);
+		is_sleep = TRUE;
 	}
+	err = loop(t, 0, f, FALSE);
+	if (SUCCESS != err)
+		return (err);
+	err = loop(t, 1, f, FALSE);
+	if (SUCCESS != err)
+		return (err);
 	return (SUCCESS);
 }
