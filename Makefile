@@ -6,7 +6,7 @@
 #    By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 14:32:48 by yoav              #+#    #+#              #
-#    Updated: 2022/12/07 14:49:08 by yrabby           ###   ########.fr        #
+#    Updated: 2022/12/07 15:14:05 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ LDFLAGS = -L$(LIBFT_DIR)
 
 .PHONY: clean fclean re all
 
-$(addprefix $(OBJ_DIR)/, %.o): $(addprefix $(SRC_DIR)/, %.c \) $(HEAD)
+$(addprefix $(OBJ_DIR)/, %.o): $(addprefix $(SRC_DIR)/, %.c) $(HEAD)
 	mkdir -p  $(OBJ_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
