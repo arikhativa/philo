@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:29:06 by yrabby            #+#    #+#             */
-/*   Updated: 2022/11/23 11:29:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/12/08 10:07:35 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,17 @@ t_error_code	input_validate_object(t_input *i)
 {
 	t_error_code	err;
 
-	if (1 == i->philo)
-		return (ERROR_ONE_PHILO);
 	err = SUCCESS;
-	err += check_field(i->philo);
 	err += check_field(i->meals_to_eat);
 	err += check_field(i->time_to_sleep);
 	err += check_field(i->time_to_die);
 	err += check_field(i->time_to_eat);
+	if (SUCCESS == err && 1 == i->philo)
+	{
+		printf("%ld %d %s\n", (long)i->time_to_die, 1, "died");
+		return (ERROR_ONE_PHILO);
+	}
+	err += check_field(i->philo);
 	if (SUCCESS != err)
 		return (ERROR);
 	return (SUCCESS);
