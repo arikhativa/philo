@@ -6,7 +6,7 @@
 #    By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 14:32:48 by yoav              #+#    #+#              #
-#    Updated: 2022/12/07 17:24:52 by yrabby           ###   ########.fr        #
+#    Updated: 2022/12/08 10:12:22 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,8 +73,8 @@ $(NAME): $(OBJ_DIR) $(OBJ)
 	$(CC) $(OBJ) $(LDLIBS) -o $@
 
 $(OBJ_DIR):
-	@cp -a $(SRC_DIR) $(OBJ_DIR)
-	@$(RM) $(OBJ:.o=.c \)
+	cp -a $(SRC_DIR) $(OBJ_DIR)
+	$(RM) $(OBJ:.o=.c)
 
 clean:
 	$(RM) $(OBJ)
